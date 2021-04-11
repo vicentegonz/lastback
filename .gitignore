@@ -1,0 +1,19 @@
+# environment
+.venv
+
+# cache
+__pycache__
+.python-version
+
+# secrets
+*.env
+*credentials.json
+client_secret.json
+local_settings.py
+
+# misc
+*.log
+.DS_Store
+*.egg-info
+*.icloud
+*.sqlite3

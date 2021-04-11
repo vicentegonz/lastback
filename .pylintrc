@@ -1,0 +1,9 @@
+[MASTER]
+
+disable = C0114,C0115,C0116
+django-settings-module = backend.settings
+load-plugins = pylint_django
+
+[FORMAT]
+
+max-line-length = 88

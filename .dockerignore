@@ -1,0 +1,23 @@
+# Exclude: everything
+*
+
+# Include: application files
+!run.sh
+!manage.py
+!backend/__init__.py
+!backend/asgi.py
+!backend/settings.py
+!backend/urls.py
+!backend/wsgi.py
+!backend/example
+
+# Include: OpenAPI documentation files
+!docs/openapi.json
+!backend/docs
+
+# Include: build files
+!pyproject.toml
+!poetry.lock
+
+# Include: misc stuff
+!entrypoint.sh
