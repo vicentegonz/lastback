@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(" ")
+ALLOWED_HOSTS = "*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") != "production"
+DEBUG = (os.environ.get("DEBUG") == "True") or (DJANGO_ENV != "production")
 
 
 # REST Framework

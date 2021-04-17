@@ -16,7 +16,7 @@
     }
   ],
   "paths": {
-    "/examples/nice": {
+    "/v1/examples/nice": {
       "get": {
         "summary": "Example endpoint for GET requests",
         "tags": [

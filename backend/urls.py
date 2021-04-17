@@ -17,5 +17,8 @@ from django.urls import include, path
 
 urlpatterns = [
     path("docs/", include("backend.docs.urls")),
-    path("examples/", include("backend.example.urls")),
+    path(
+        "v1/",
+        include([path("examples/", include("backend.example.v1.urls"))]),
+    ),
 ]
