@@ -1,9 +1,21 @@
 version: '3.7'
 services:
-  db:
+  default_db:
     image: postgres:12.6
     volumes:
-      - data:/var/lib/postgresql/data
+      - default_data:/var/lib/postgresql/data
+    environment:
+      # Authorize insecure connections;
+      # used only in local development.
+      POSTGRES_HOST_AUTH_METHOD: trust
+      # Reference: <https://www.postgresql.org/docs/12/auth-trust.html>
+    networks:
+      - backend
+
+  internal_db:
+    image: postgres:12.6
+    volumes:
+      - internal_data:/var/lib/postgresql/data
     environment:
       # Authorize insecure connections;
       # used only in local development.
@@ -24,13 +36,16 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - default_db
+      - internal_db
     networks:
       - backend
 
 
 volumes:
-  data:
+  default_data:
+    driver: local
+  internal_data:
     driver: local
 
 

@@ -71,17 +71,28 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DATABASE_NAME", "postgres"),
-        "USER": os.environ.get("DATABASE_USER", "postgres"),
-        "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
-        "HOST": os.environ.get("DATABASE_HOST", "db"),
-        "PORT": os.environ.get("DATABASE_PORT", 5432),
+        "NAME": os.environ.get("DEFAULT_DATABASE_NAME", "postgres"),
+        "USER": os.environ.get("DEFAULT_DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("DEFAULT_DATABASE_PASSWORD"),
+        "HOST": os.environ.get("DEFAULT_DATABASE_HOST", "default_db"),
+        "PORT": os.environ.get("DEFAULT_DATABASE_PORT", 5432),
+    },
+    "internal": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("INTERNAL_DATABASE_NAME", "postgres"),
+        "USER": os.environ.get("INTERNAL_DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("INTERNAL_DATABASE_PASSWORD"),
+        "HOST": os.environ.get("INTERNAL_DATABASE_HOST", "internal_db"),
+        "PORT": os.environ.get("INTERNAL_DATABASE_PORT", 5432),
     }
 }
 
-# Configure DATABASE_URL as main database in production
-if "DATABASE_URL" in os.environ:
+# Configure DEFAULT_DATABASE_URL as main database and INTERNAL_DATABASE_URL
+# as secondary database in production
+if "DEFAULT_DATABASE_URL" in os.environ:
     DATABASES["default"] = dj_database_url.config(ssl_require=True)
+if "INTERNAL_DATABASE_URL" in os.environ:
+    DATABASES["internal"] = dj_database_url.config(ssl_require=True)
 
 
 # Internationalization
