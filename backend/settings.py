@@ -84,7 +84,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("INTERNAL_DATABASE_PASSWORD"),
         "HOST": os.environ.get("INTERNAL_DATABASE_HOST", "internal_db"),
         "PORT": os.environ.get("INTERNAL_DATABASE_PORT", 5432),
-    }
+    },
 }
 
 # Configure DEFAULT_DATABASE_URL as main database and INTERNAL_DATABASE_URL
