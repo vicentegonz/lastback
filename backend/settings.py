@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import dj_database_url
@@ -56,11 +57,13 @@ INSTALLED_APPS = [
     "backend.example.apps.ExampleConfig",
     "backend.users.apps.UsersConfig",
     "djoser",
+    "social_django", 
     "rest_framework_simplejwt",
-    "rest_framework_simplejwt.token_blacklist",
+    "rest_framework_simplejwt.token_blacklist"
 ]
 
 MIDDLEWARE = [
+    "social_django.middleware.SocialAuthExceptionMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -158,6 +161,8 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect"
             ]
         },
     }
@@ -166,14 +171,35 @@ TEMPLATES = [
 AUTH_USER_MODEL = "users.UserAccount"
 
 SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
+    'AUTH_HEADER_TYPES': ("JWT",),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'AUTH_TOKEN_CLASSES': (
+        'rest_framework_simplejwt.tokens.AccessToken',
+    )
 }
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+
+)
 DJOSER = {
     "LOGIN_FIELD": "email",
+    'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
+    'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': ['http://localhost:8000'],
     "SERIALIZERS": {
         "user_create": "backend.users.serializers.UserAccountCreateSerializer",
         "user": "backend.users.serializers.UserAccountCreateSerializer",
+        'current_user': 'backend.users.serializers.UserAccountCreateSerializer',
         "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }
+
+# Google API Credentials
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '282812661596-l3jflmj7t08h65rgu575pgbvfkc1gm1o.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'X9K97gpB-12xjKTqbfFJviM2'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid' ]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
