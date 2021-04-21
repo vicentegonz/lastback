@@ -17,3 +17,4 @@ local_settings.py
 *.egg-info
 *.icloud
 *.sqlite3
+.vscode

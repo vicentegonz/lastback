@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "capstone-group8-backend"
-authors = ["Daniel Leal <dlleal@uc.cl>"]
+authors = ["Daniel Leal <dlleal@uc.cl>", "Maria Luisa Claro <muclaro@uc.cl>", "Francisco Andrade <faandrade@uc.cl>"]
 version = "0.0.1"
 description = "Backend application for the group 8's capstone project."
 readme = "README.md"
@@ -12,6 +12,7 @@ djangorestframework = "^3.12.4"
 gunicorn = "^20.1.0"
 dj-database-url = "^0.5.0"
 psycopg2-binary = "^2.8.6"
+djoser = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.7.4"
