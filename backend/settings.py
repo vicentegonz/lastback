@@ -40,8 +40,8 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
 
@@ -56,8 +56,8 @@ INSTALLED_APPS = [
     "backend.example.apps.ExampleConfig",
     "backend.users.apps.UsersConfig",
     "djoser",
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist'
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 MIDDLEWARE = [
@@ -91,7 +91,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("INTERNAL_DATABASE_PASSWORD"),
         "HOST": os.environ.get("INTERNAL_DATABASE_HOST", "internal_db"),
         "PORT": os.environ.get("INTERNAL_DATABASE_PORT", 5432),
-    }
+    },
 }
 
 # Configure DEFAULT_DATABASE_URL as main database and INTERNAL_DATABASE_URL
@@ -148,7 +148,7 @@ PROPAGATE_EXCEPTIONS = True
 # Templates
 # https://docs.djangoproject.com/en/3.2/topics/templates/#configuration
 
-#REVISAR DIRS
+# REVISAR DIRS
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -163,18 +163,17 @@ TEMPLATES = [
     }
 ]
 
-AUTH_USER_MODEL = 'users.UserAccount'
+AUTH_USER_MODEL = "users.UserAccount"
 
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
+    "AUTH_HEADER_TYPES": ("JWT",),
 }
 
 DJOSER = {
-    'LOGIN_FIELD': 'email',
-    'SERIALIZERS': {
-        'user_create': 'backend.users.serializers.UserCreateSerializer',
-        'user': 'backend.users.serializers.UserCreateSerializer',
-        'current_user': 'backend.users.serializers.UserCreateSerializer',
-        'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    }
+    "LOGIN_FIELD": "email",
+    "SERIALIZERS": {
+        "user_create": "backend.users.serializers.UserAccountCreateSerializer",
+        "user": "backend.users.serializers.UserAccountCreateSerializer",
+        "user_delete": "djoser.serializers.UserDeleteSerializer",
+    },
 }
