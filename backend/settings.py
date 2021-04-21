@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "backend.docs.apps.DocsConfig",
     "backend.example.apps.ExampleConfig",
+    "backend.users.apps.UserConfig"
 ]
 
 MIDDLEWARE = [
