@@ -9,6 +9,7 @@
 !backend/settings.py
 !backend/urls.py
 !backend/wsgi.py
+!backend/common
 !backend/example
 
 # Include: OpenAPI documentation files

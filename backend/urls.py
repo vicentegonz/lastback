@@ -16,6 +16,7 @@ Including another URLconf
 from django.urls import include, path
 
 urlpatterns = [
+    path("", include("backend.common.urls")),
     path("docs/", include("backend.docs.urls")),
     path(
         "v1/",

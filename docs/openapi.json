@@ -12,6 +12,9 @@
   ],
   "tags":[
     {
+      "name": "Common"
+    },
+    {
       "name": "Example"
     }
   ],
@@ -40,6 +43,20 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/health-check/": {
+      "get": {
+        "summary": "Health check endpoint for the backend, checks for pending migrations",
+        "tags": ["Common"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "503": {
+            "description": "Service Unavailable"
           }
         }
       }
