@@ -12,10 +12,10 @@ services:
     networks:
       - backend
 
-  internal_db:
+  external_db:
     image: postgres:12.6
     volumes:
-      - internal_data:/var/lib/postgresql/data
+      - external_data:/var/lib/postgresql/data
     environment:
       # Authorize insecure connections;
       # used only in local development.
@@ -37,7 +37,7 @@ services:
       - "8000:8000"
     depends_on:
       - default_db
-      - internal_db
+      - external_db
     networks:
       - backend
 
@@ -45,7 +45,7 @@ services:
 volumes:
   default_data:
     driver: local
-  internal_data:
+  external_data:
     driver: local
 
 

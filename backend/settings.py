@@ -77,22 +77,22 @@ DATABASES = {
         "HOST": os.environ.get("DEFAULT_DATABASE_HOST", "default_db"),
         "PORT": os.environ.get("DEFAULT_DATABASE_PORT", 5432),
     },
-    "internal": {
+    "external": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("INTERNAL_DATABASE_NAME", "postgres"),
-        "USER": os.environ.get("INTERNAL_DATABASE_USER", "postgres"),
-        "PASSWORD": os.environ.get("INTERNAL_DATABASE_PASSWORD"),
-        "HOST": os.environ.get("INTERNAL_DATABASE_HOST", "internal_db"),
-        "PORT": os.environ.get("INTERNAL_DATABASE_PORT", 5432),
+        "NAME": os.environ.get("EXTERNAL_DATABASE_NAME", "postgres"),
+        "USER": os.environ.get("EXTERNAL_DATABASE_USER", "postgres"),
+        "PASSWORD": os.environ.get("EXTERNAL_DATABASE_PASSWORD"),
+        "HOST": os.environ.get("EXTERNAL_DATABASE_HOST", "external_db"),
+        "PORT": os.environ.get("EXTERNAL_DATABASE_PORT", 5432),
     },
 }
 
-# Configure DEFAULT_DATABASE_URL as main database and INTERNAL_DATABASE_URL
+# Configure DEFAULT_DATABASE_URL as main database and EXTERNAL_DATABASE_URL
 # as secondary database in production
 if "DEFAULT_DATABASE_URL" in os.environ:
     DATABASES["default"] = dj_database_url.config(ssl_require=True)
-if "INTERNAL_DATABASE_URL" in os.environ:
-    DATABASES["internal"] = dj_database_url.config(ssl_require=True)
+if "EXTERNAL_DATABASE_URL" in os.environ:
+    DATABASES["external"] = dj_database_url.config(ssl_require=True)
 
 
 # Internationalization
