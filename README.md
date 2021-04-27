@@ -11,7 +11,14 @@ The requirements are simple! You just need:
 
 ## Starting the server
 
-To start the server, first build the Docker image:
+To start the server, first create a `.env` file with all the environmental variables:
+
+```sh
+cp .env.example .env
+nano .env  # Or use your favorite text editor
+```
+
+Then, build the Docker image:
 
 ```sh
 docker-compose build
@@ -34,6 +41,31 @@ docker-compose run <service> [COMMAND]
 ```
 
 Where `<service>` corresponds to the name of the service in which you want to run the command (the services get defined inside the `docker-compose.yml` file).
+
+## Environmental variables
+
+There are some environmental variables that need to be added to the repository:
+
+- `DJANGO_SECRET_KEY`: **Required on production**. This random string variable is used by Django as a seed for all of its random stuff, so **it is essential to be random, unique and unknown**.
+- `SOCIAL_SECRET`: **Required on production**. A secret random string used as a password for all the users created with the social workflow.
+- `DJANGO_ENV`: **Required on production**. This string (should be in `["production", "development"]`) dictates the environment in which Django will run.
+- `DEBUG`: This overwrites the `DJANGO_ENV` regarding the debug mode. If `DJANGO_ENV` is set to something other than `production`, the app will run by default on debug mode. If `DJANGO_ENV` is on `production`, however, you can still run the app on debug mode, by setting the `DEBUG` variable to `True`.
+- `GOOGLE_CLIENT_ID`: **Required on production**. This is the client ID of the Google project that allows logins of the users through Google.
+- `JWT_LIFETIME`: The duration of the JWT, in minutes. Defaults to `60`.
+- `JWT_REFRESH_LIFETIME`: The duration of the refresh token, in hours. Defaults to `24`.
+- `ALLOWED_ORIGINS`: A list of allowed tokens for CORS, separated by spaces (for instance, `https://production.com https://development.com http://localhost:8000`). Note that the application will always allow `http://localhost:3000`.
+- `DEFAULT_DATABASE_URL`: **Required on production**. The URL for the default database. This variable overwrites the following variables:
+  - `DEFAULT_DATABASE_NAME`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the name of the database to access. Defaults to `postgres`.
+  - `DEFAULT_DATABASE_USER`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the username of the database engine to use. Defaults to `postgres`.
+  - `DEFAULT_DATABASE_PASSWORD`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the password to use with the database user.
+  - `DEFAULT_DATABASE_HOST`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the machine hosting the database engine. Defaults to `default_db`.
+  - `DEFAULT_DATABASE_PORT`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the port of the host machine to query for the database. Defaults to `5432`.
+- `EXTERNAL_DATABASE_URL`: **Required on production**. The URL for the external (read-only access) database. This variable overwrites the following variables:
+  - `EXTERNAL_DATABASE_NAME`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the name of the external database to access. Defaults to `postgres`.
+  - `EXTERNAL_DATABASE_USER`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the username of the external database engine to use. Defaults to `postgres`.
+  - `EXTERNAL_DATABASE_PASSWORD`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the password to use with the external database user.
+  - `EXTERNAL_DATABASE_HOST`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the machine hosting the external database engine. Defaults to `external_db`.
+  - `EXTERNAL_DATABASE_PORT`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the port of the host machine to query for the external database. Defaults to `5432`.
 
 ## Adding new apps
 

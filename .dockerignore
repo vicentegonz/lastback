@@ -9,8 +9,9 @@
 !backend/settings.py
 !backend/urls.py
 !backend/wsgi.py
+!backend/accounts
+!backend/authentication
 !backend/common
-!backend/example
 
 # Include: OpenAPI documentation files
 !docs/openapi.json

@@ -54,6 +54,7 @@ JWT_REFRESH_LIFETIME = int(os.environ.get("JWT_REFRESH_LIFETIME", "24"))  # hour
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=JWT_LIFETIME),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(hours=JWT_REFRESH_LIFETIME),
+    "ROTATE_REFRESH_TOKENS": True,
 }
 
 
@@ -66,7 +67,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "backend.docs.apps.DocsConfig",
-    "backend.example.apps.ExampleConfig",
     "backend.accounts.apps.AccountsConfig",
     "backend.authentication.apps.AuthenticationConfig",
 ]
@@ -109,9 +109,13 @@ DATABASES = {
 # Configure DEFAULT_DATABASE_URL as main database and EXTERNAL_DATABASE_URL
 # as secondary database in production
 if "DEFAULT_DATABASE_URL" in os.environ:
-    DATABASES["default"] = dj_database_url.config(ssl_require=True)
+    DATABASES["default"] = dj_database_url.config(
+        env="DEFAULT_DATABASE_URL", ssl_require=True
+    )
 if "EXTERNAL_DATABASE_URL" in os.environ:
-    DATABASES["external"] = dj_database_url.config(ssl_require=True)
+    DATABASES["external"] = dj_database_url.config(
+        env="EXTERNAL_DATABASE_URL", ssl_require=True
+    )
 
 
 # Internationalization
@@ -177,6 +181,6 @@ TEMPLATES = [
 # Authentication backends
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"] + os.environ.get(
-    "ALLOWED_ORIGINS", ""
-).split(" ")
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"] + list(
+    filter(lambda x: x, os.environ.get("ALLOWED_ORIGINS", "").split(" "))
+)

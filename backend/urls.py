@@ -22,7 +22,6 @@ urlpatterns = [
         "v1/",
         include(
             [
-                path("examples/", include("backend.example.v1.urls")),
                 path("authentication/", include("backend.authentication.v1.urls")),
             ]
         ),
