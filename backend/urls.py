@@ -20,6 +20,11 @@ urlpatterns = [
     path("docs/", include("backend.docs.urls")),
     path(
         "v1/",
-        include([path("examples/", include("backend.example.v1.urls"))]),
+        include(
+            [
+                path("examples/", include("backend.example.v1.urls")),
+                path("authentication/", include("backend.authentication.v1.urls")),
+            ]
+        ),
     ),
 ]

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import datetime
 import os
 from pathlib import Path
 
@@ -23,7 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
+
+SOCIAL_SECRET = os.environ.get("SOCIAL_SECRET", "default-social-secret")
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "default-google-id")
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")
 ALLOWED_HOSTS = "*"
@@ -40,21 +44,36 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+JWT_LIFETIME = int(os.environ.get("JWT_LIFETIME", "60"))  # minutes
+JWT_REFRESH_LIFETIME = int(os.environ.get("JWT_REFRESH_LIFETIME", "24"))  # hours
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=JWT_LIFETIME),
+    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(hours=JWT_REFRESH_LIFETIME),
 }
 
 
+AUTH_USER_MODEL = "accounts.User"
 # Application definition
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
     "rest_framework",
+    "corsheaders",
     "backend.docs.apps.DocsConfig",
     "backend.example.apps.ExampleConfig",
+    "backend.accounts.apps.AccountsConfig",
+    "backend.authentication.apps.AuthenticationConfig",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -154,3 +173,10 @@ TEMPLATES = [
         },
     }
 ]
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"] + os.environ.get(
+    "ALLOWED_ORIGINS", ""
+).split(" ")
