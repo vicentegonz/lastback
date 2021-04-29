@@ -22,11 +22,16 @@ class GoogleSocialAuthSerializer(serializers.Serializer):
         if user_data["aud"] != settings.GOOGLE_CLIENT_ID:
             raise AuthenticationFailed("oops, who are you?")
 
-        user_id = user_data["sub"]
         email = user_data["email"]
         name = user_data["name"]
-        provider = "google"
+        given_name = user_data["given_name"]
+        family_name = user_data["family_name"]
+        picture = user_data["picture"]
 
         return register_social_user(
-            provider=provider, user_id=user_id, email=email, name=name
+            email=email,
+            name=name,
+            given_name=given_name,
+            family_name=family_name,
+            picture=picture,
         )

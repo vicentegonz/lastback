@@ -9,29 +9,29 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, email, password=None):
-        if username is None:
-            raise TypeError("Users should have a username")
+    def create_user(self, email, given_name, family_name, picture):
         if email is None:
             raise TypeError("Users should have a Email")
 
-        user = self.model(username=username, email=self.normalize_email(email))
-        user.set_password(password)
+        user = self.model(
+            email=self.normalize_email(email),
+            given_name=given_name,
+            family_name=family_name,
+            picture=picture,
+        )
         user.save()
         return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(max_length=255, unique=True, db_index=True)
+    given_name = models.CharField(max_length=255)
+    family_name = models.CharField(max_length=255)
+    picture = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    auth_provider = models.CharField(
-        max_length=255, blank=False, null=False, default="google"
-    )
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username"]
 
     objects = UserManager()
 
