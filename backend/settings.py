@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "rest_framework",
     "corsheaders",
+    "rest_framework_simplejwt.token_blacklist",
     "backend.docs.apps.DocsConfig",
     "backend.accounts.apps.AccountsConfig",
     "backend.authentication.apps.AuthenticationConfig",
