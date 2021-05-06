@@ -1,9 +1,11 @@
 from rest_framework import serializers
-from backend.accounts.serializers import UserSerializer
+
+from backend.accounts.v1.serializers import UserSerializer
+from backend.accounts.models import User
 
 class ContactGroupSerializer(serializers.Serializer):
 
-    all_contacts = UserSerilizer(source='contacts', many=True)
+    all_contacts = UserSerializer(source='contacts', many=True)
     role = serializers.SerializerMethodField()
 
     def get_role(self, obj):
@@ -14,7 +16,7 @@ class ContactGroupSerializer(serializers.Serializer):
 
     class Meta:
         model = User
-        fields = ['email', "given_name", "family_name", "picture", 'role']
+        fields = ['email', "given_name", "family_name", "picture", 'role', 'all_contacts']
         
 
     
