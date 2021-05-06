@@ -13,17 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import include, path
+from django.urls import include, path, re_path
+
+from backend.common.versioning import ALLOWED_VERSIONS
+
+ALLOWED_VERSIONS_STRING = "|".join(ALLOWED_VERSIONS)
+
 
 urlpatterns = [
     path("", include("backend.common.urls")),
     path("docs/", include("backend.docs.urls")),
-    path(
-        "v1/",
+    re_path(
+        rf"(?P<version>({ALLOWED_VERSIONS_STRING}))/",
         include(
             [
-                path("authentication/", include("backend.authentication.v1.urls")),
-                path("accounts/", include("backend.accounts.v1.urls")),
+                path("authentication/", include("backend.authentication.urls")),
+                path("accounts/", include("backend.accounts.urls")),
             ]
         ),
     ),

@@ -3,7 +3,7 @@ from django.db.migrations.executor import MigrationExecutor
 from django.http import HttpResponse
 
 
-def health_check(request):
+def health_check(request, **kwargs):
     """
     Returns 503 if any database has a migration that has not been executed,
     returns 200 on any other case.

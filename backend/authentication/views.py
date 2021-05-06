@@ -12,7 +12,7 @@ class GoogleSocialAuthView(GenericAPIView):
     # ByPasses JWT auth
     permission_classes = [permissions.AllowAny]
 
-    def post(self, request):
+    def post(self, request, **kwargs):
         """
         POST with "id_token"
         Send an id token as from google to get user information

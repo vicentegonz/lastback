@@ -6,6 +6,6 @@ from .serializers import UserSerializer
 
 
 class UserDetail(APIView):
-    def get(self, request):
+    def get(self, request, **kwargs):
         serializer = UserSerializer(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)

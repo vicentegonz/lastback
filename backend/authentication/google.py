@@ -1,8 +1,9 @@
+from google.auth.exceptions import GoogleAuthError
 from google.auth.transport import requests
 from google.oauth2 import id_token
 
 
-class Google:
+class Google:  # pylint: disable=R0903
     """Google class to fetch the user info and return it"""
 
     @staticmethod
@@ -13,8 +14,10 @@ class Google:
         try:
             idinfo = id_token.verify_oauth2_token(token, requests.Request())
 
-            if "accounts.google.com" in idinfo["iss"]:
-                return idinfo
+            if "accounts.google.com" not in idinfo["iss"]:
+                raise GoogleAuthError("Wrong issuer.")
 
-        except Exception:
+            return idinfo
+
+        except (ValueError, GoogleAuthError):
             return "The token is either invalid or has expired"
