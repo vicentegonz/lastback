@@ -2,11 +2,10 @@ from rest_framework import status
 from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.response import Response
 
-from .serializers import ContactSerializer
 
 class ContactView(ListAPIView):
 
-    serializer_class = ContactSerializer
+    #serializer_class = ContactSerializer
 
     def get_queryset(self):
         role = self.request.query_params.get('role', None)
