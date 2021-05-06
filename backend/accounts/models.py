@@ -30,6 +30,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     picture = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    contacts = models.ManyToManyField(self)
 
     USERNAME_FIELD = "email"
 
