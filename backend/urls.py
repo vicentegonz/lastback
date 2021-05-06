@@ -24,6 +24,7 @@ urlpatterns = [
             [
                 path("authentication/", include("backend.authentication.v1.urls")),
                 path("accounts/", include("backend.accounts.v1.urls")),
+                path("contacts/", include("backend.contacts.v1.urls")),
             ]
         ),
     ),

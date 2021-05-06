@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 class ContactView(ListAPIView):
 
-    #serializer_class = ContactSerializer
+    serializer_class = ContactSerializer
 
     def get_queryset(self):
         role = self.request.query_params.get('role', None)
