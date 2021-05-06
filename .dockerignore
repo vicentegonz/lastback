@@ -12,6 +12,7 @@
 !backend/accounts
 !backend/authentication
 !backend/common
+!backend/contacts
 
 # Include: OpenAPI documentation files
 !docs/openapi.json

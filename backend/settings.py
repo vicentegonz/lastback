@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "backend.docs.apps.DocsConfig",
     "backend.accounts.apps.AccountsConfig",
     "backend.authentication.apps.AuthenticationConfig",
+    "backend.contacts.apps.ContactsConfig",
 ]
 
 MIDDLEWARE = [
