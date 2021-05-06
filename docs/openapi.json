@@ -21,7 +21,7 @@
   "paths": {
     "/v1/authentication/google/": {
       "post": {
-        "summary": "Endpoint to get the JWT and refresh token",
+        "summary": "Endpoint to get the JWT and refresh tokens",
         "tags": ["Authentication"],
         "requestBody": {
           "required": true,
@@ -69,16 +69,83 @@
         }
       }
     },
-    "/v1/authentication/token/refresh/": {
+    "/v1/authentication/token/validate/": {
       "post": {
-        "summary": "Endpoint to refresh the access tokens",
+        "summary": "Endpoint to validate an access token",
         "tags": ["Authentication"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/authorizationTokens"
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "format": "jwt",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiY29sZF9zdHVmZiI6IuKYgyIsImV4cCI6MTIzNTY3LCJqdGkiOiJjNzE4ZTVkNjgzZWQ0NTQyYTU0NWJkM2VmMGI0ZGQ0ZSJ9.ekxRxgb9OKmHkfy-zs1Ro_xs1eMLXiR17dIDBVxeT-w"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_token": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": ["This field is required."]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "enum": ["Token is invalid or expired"]
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": ["token_not_valid"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/authentication/token/refresh/": {
+      "post": {
+        "summary": "Endpoint to refresh the JWT and refresh tokens",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/refreshToken"
               }
             }
           }
@@ -173,21 +240,35 @@
           }
         }
       },
-      "authorizationTokens": {
+      "accessToken": {
         "type": "object",
         "properties": {
           "access": {
             "type": "string",
             "format": "jwt",
-            "readOnly": true,
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiY29sZF9zdHVmZiI6IuKYgyIsImV4cCI6MTIzNTY3LCJqdGkiOiJjNzE4ZTVkNjgzZWQ0NTQyYTU0NWJkM2VmMGI0ZGQ0ZSJ9.ekxRxgb9OKmHkfy-zs1Ro_xs1eMLXiR17dIDBVxeT-w"
-          },
+          }
+        }
+      },
+      "refreshToken": {
+        "type": "object",
+        "properties": {
           "refresh": {
             "type": "string",
             "format": "jwt",
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImNvbGRfc3R1ZmYiOiLimIMiLCJleHAiOjIzNDU2NywianRpIjoiZGUxMmY0ZTY3MDY4NDI3ODg5ZjE1YWMyNzcwZGEwNTEifQ.aEoAYkSJjoWH1boshQAaTkf8G3yn0kapko6HFRt7Rh4"
           }
         }
+      },
+      "authorizationTokens": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/accessToken"
+          },
+          {
+            "$ref": "#/components/schemas/refreshToken"
+          }
+        ]
       }
     }
   }
