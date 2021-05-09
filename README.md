@@ -54,18 +54,12 @@ There are some environmental variables that need to be added to the repository:
 - `JWT_LIFETIME`: The duration of the JWT, in minutes. Defaults to `60`.
 - `JWT_REFRESH_LIFETIME`: The duration of the refresh token, in hours. Defaults to `24`.
 - `ALLOWED_ORIGINS`: A list of allowed tokens for CORS, separated by spaces (for instance, `https://production.com https://development.com http://localhost:8000`). Note that the application will always allow `http://localhost:3000`.
-- `DEFAULT_DATABASE_URL`: **Required on production**. The URL for the default database. This variable overwrites the following variables:
-  - `DEFAULT_DATABASE_NAME`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the name of the database to access. Defaults to `postgres`.
-  - `DEFAULT_DATABASE_USER`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the username of the database engine to use. Defaults to `postgres`.
-  - `DEFAULT_DATABASE_PASSWORD`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the password to use with the database user.
-  - `DEFAULT_DATABASE_HOST`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the machine hosting the database engine. Defaults to `default_db`.
-  - `DEFAULT_DATABASE_PORT`: **Required on production** (unless `DEFAULT_DATABASE_URL` is set). Defines the port of the host machine to query for the database. Defaults to `5432`.
-- `EXTERNAL_DATABASE_URL`: **Required on production**. The URL for the external (read-only access) database. This variable overwrites the following variables:
-  - `EXTERNAL_DATABASE_NAME`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the name of the external database to access. Defaults to `postgres`.
-  - `EXTERNAL_DATABASE_USER`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the username of the external database engine to use. Defaults to `postgres`.
-  - `EXTERNAL_DATABASE_PASSWORD`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the password to use with the external database user.
-  - `EXTERNAL_DATABASE_HOST`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the machine hosting the external database engine. Defaults to `external_db`.
-  - `EXTERNAL_DATABASE_PORT`: **Required on production** (unless `EXTERNAL_DATABASE_URL` is set). Defines the port of the host machine to query for the external database. Defaults to `5432`.
+- `DATABASE_URL`: **Required on production**. The URL for the database. This variable overwrites the following variables:
+  - `DATABASE_NAME`: **Required on production** (unless `DATABASE_URL` is set). Defines the name of the database to access. Defaults to `postgres`.
+  - `DATABASE_USER`: **Required on production** (unless `DATABASE_URL` is set). Defines the username of the database engine to use. Defaults to `postgres`.
+  - `DATABASE_PASSWORD`: **Required on production** (unless `DATABASE_URL` is set). Defines the password to use with the database user.
+  - `DATABASE_HOST`: **Required on production** (unless `DATABASE_URL` is set). Defines the machine hosting the database engine. Defaults to `default_db`.
+  - `DATABASE_PORT`: **Required on production** (unless `DATABASE_URL` is set). Defines the port of the host machine to query for the database. Defaults to `5432`.
 
 ## Adding new apps
 
