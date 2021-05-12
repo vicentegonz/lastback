@@ -15,6 +15,9 @@
       "name": "Authentication"
     },
     {
+      "name": "Operations"
+    },
+    {
       "name": "Common"
     }
   ],
@@ -206,6 +209,164 @@
         }
       }
     },
+    "/v1/account/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get all the information of one account",
+        "tags": ["Accounts"],
+        "responses": {
+          "200": {
+            "description": "A JSON array with the user information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"      
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/zones/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a list of zones",
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "A JSON array of zones names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zone"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/zones/{id}": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a zone by ID",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Zone ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of a zones",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zone"      
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a list of zones",
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "A JSON array of stores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a store by ID",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Zone ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of a store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Store"      
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
     "/health-check/": {
       "get": {
         "summary": "Health check endpoint for the backend, checks for pending migrations",
@@ -227,6 +388,24 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
+      }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string",
+                  "enum": ["Authentication credentials were not provided."]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "schemas": {
@@ -269,6 +448,49 @@
             "$ref": "#/components/schemas/refreshToken"
           }
         ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "dlleal@uc.cl"
+          },
+          "given_name": {
+            "type": "string",
+            "example": "Dani"
+          },
+          "picture": {
+            "type": "string",
+            "example": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c"
+          }, 
+          "role": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Zone": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Sample zone"
+          }
+        }
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Sample store"
+          },
+          "zone": {
+            "type": "integer",
+            "example": 1
+          }
+        }
       }
     }
   }

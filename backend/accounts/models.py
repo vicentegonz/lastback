@@ -24,12 +24,18 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICES = (
+        (0, "Manager"),
+        (1, "Zone leader"),
+    )
+
     email = models.EmailField(max_length=255, unique=True, db_index=True)
     given_name = models.CharField(max_length=255)
     family_name = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    role = models.CharField(choices=ROLE_CHOICES, default=0, max_length=100)
 
     USERNAME_FIELD = "email"
 

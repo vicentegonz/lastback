@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     "backend.docs.apps.DocsConfig",
     "backend.accounts.apps.AccountsConfig",
+    "backend.operations.apps.OperationsConfig",
     "backend.authentication.apps.AuthenticationConfig",
 ]
 
