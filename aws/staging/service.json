@@ -1,0 +1,13 @@
+{
+  "cluster": "staging",
+  "serviceName": "application-staging",
+  "taskDefinition": "application-staging",
+  "desiredCount": 1,
+  "loadBalancers": [
+    {
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:556359875842:targetgroup/ecs-target-group-staging/855979018da1a997",
+      "containerName": "web",
+      "containerPort": 8000
+    }
+  ]
+}

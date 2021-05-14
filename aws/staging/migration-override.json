@@ -1,0 +1,9 @@
+{
+  "containerOverrides": [
+    {
+      "name": "web",
+      "command": ["python", "manage.py", "migrate"]
+    }
+  ],
+  "taskRoleArn": "arn:aws:iam::556359875842:role/ecsTaskExecutionRole"
+}

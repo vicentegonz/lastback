@@ -8,6 +8,14 @@
     {
       "url": "http://localhost:8000",
       "description": "Development server"
+    },
+    {
+      "url": "https://api.staging-arcopri.ml",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.arcopri.ml",
+      "description": "Production server"
     }
   ],
   "tags":[
