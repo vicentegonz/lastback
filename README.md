@@ -32,6 +32,20 @@ docker-compose up
 
 The API can be reached at `http://localhost:8000/`.
 
+Rememeber to migrate the database:
+
+```sh
+make migrate!
+
+# Or `docker-compose run web python manage.py migrate`
+```
+
+And to run the seeds:
+
+```sh
+make seeds!
+```
+
 ## Running commands inside the container
 
 From now on, every command that should be run on the console will be run inside the container. This means that, for example, the command `python manage.py shell` will now be run through Docker using `docker-compose run web python manage.py shell`. The gist is that any command `[COMMAND]` will now be run as:
@@ -47,7 +61,6 @@ Where `<service>` corresponds to the name of the service in which you want to ru
 There are some environmental variables that need to be added to the repository:
 
 - `DJANGO_SECRET_KEY`: **Required on production**. This random string variable is used by Django as a seed for all of its random stuff, so **it is essential to be random, unique and unknown**.
-- `SOCIAL_SECRET`: **Required on production**. A secret random string used as a password for all the users created with the social workflow.
 - `DJANGO_ENV`: **Required on production**. This string (should be in `["production", "development"]`) dictates the environment in which Django will run.
 - `DEBUG`: This overwrites the `DJANGO_ENV` regarding the debug mode. If `DJANGO_ENV` is set to something other than `production`, the app will run by default on debug mode. If `DJANGO_ENV` is on `production`, however, you can still run the app on debug mode, by setting the `DEBUG` variable to `True`.
 - `GOOGLE_CLIENT_ID`: **Required on production**. This is the client ID of the Google project that allows logins of the users through Google.

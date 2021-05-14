@@ -23,6 +23,9 @@
       "name": "Authentication"
     },
     {
+      "name": "Accounts"
+    },
+    {
       "name": "Operations"
     },
     {
@@ -544,6 +547,13 @@
           "role": {
             "type": "integer",
             "example": 1
+          },
+          "stores": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [1, 3]
           }
         }
       },

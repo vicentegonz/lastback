@@ -26,7 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
 
-SOCIAL_SECRET = os.environ.get("SOCIAL_SECRET", "default-social-secret")
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "default-google-id")
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")

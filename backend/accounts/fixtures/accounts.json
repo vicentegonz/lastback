@@ -3,11 +3,11 @@
     "model": "accounts.User",
     "pk": 1,
     "fields": {
-        "email": "user@test.com",
-        "given_name": "test",
-        "family_name": "test",
+        "email": "absoto4@uc.cl",
+        "given_name": "Antonia",
+        "family_name": "Soto",
         "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
-        "role": 0,
+        "role": 1,
         "created_at": "2020-10-20T10:30:00.998Z",
         "updated_at": "2020-10-20T10:30:00.998Z"
     }
@@ -16,9 +16,139 @@
     "model": "accounts.User",
     "pk": 2,
     "fields": {
-        "email": "user2@test.com",
-        "given_name": "test2",
-        "family_name": "test2",
+        "email": "bpeirano1@uc.cl",
+        "given_name": "Bartolomé",
+        "family_name": "Peirano",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 3,
+    "fields": {
+        "email": "jyhormazabal@uc.cl",
+        "given_name": "Jessica",
+        "family_name": "Hormazabal",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 4,
+    "fields": {
+        "email": "vgonzalez4@uc.cl",
+        "given_name": "Vicente",
+        "family_name": "González",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 5,
+    "fields": {
+        "email": "faibarra1@uc.cl",
+        "given_name": "Francisca",
+        "family_name": "Ibarra",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 6,
+    "fields": {
+        "email": "jndominguez@uc.cl",
+        "given_name": "Jose",
+        "family_name": "Domínguez",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 7,
+    "fields": {
+        "email": "jmrojas2@uc.cl",
+        "given_name": "José Miguel",
+        "family_name": "Rojas",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 8,
+    "fields": {
+        "email": "mjcadile@uc.cl",
+        "given_name": "Matías",
+        "family_name": "Cadile",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 9,
+    "fields": {
+        "email": "muclaro@uc.cl",
+        "given_name": "María Luisa",
+        "family_name": "Claro",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 10,
+    "fields": {
+        "email": "faandrade@uc.cl",
+        "given_name": "Francisco",
+        "family_name": "Andrade",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 11,
+    "fields": {
+        "email": "jaluco@uc.cl",
+        "given_name": "Jose",
+        "family_name": "Luco",
+        "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 12,
+    "fields": {
+        "email": "dlleal@uc.cl",
+        "given_name": "Daniel",
+        "family_name": "Leal",
         "picture": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c",
         "role": 1,
         "created_at": "2020-10-20T10:30:00.998Z",
