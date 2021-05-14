@@ -7,3 +7,6 @@ load-plugins = pylint_django
 [FORMAT]
 
 max-line-length = 88
+
+good-names=pk
+

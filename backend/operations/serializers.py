@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Store, Zone
+from .models import Event, Store, Zone
 
 
 class StoreSerializer(serializers.ModelSerializer):
@@ -13,3 +13,9 @@ class ZoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Zone
         fields = ["name"]
+
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ["store", "data"]

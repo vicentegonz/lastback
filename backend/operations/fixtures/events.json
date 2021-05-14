@@ -1,0 +1,32 @@
+[
+  {
+    "model": "operations.Event",
+    "pk": 1,
+    "fields": {
+        "store_id": 1,
+        "data": {"date":"2020-10-20T10:30:00.998Z", "event": "An estimated 40 zero cokes will be consumed today"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 2,
+    "fields": {
+        "store_id": 1,
+        "data": {"date":"2020-10-20T10:30:00.998Z", "event": "An estimated 50 diet cokes will be consumed today"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 3,
+    "fields": {
+        "store_id": 2,
+        "data": {"date":"2020-10-20T10:30:00.998Z", "event": "An estimated 40 diet cokes will be consumed today"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  }
+]
