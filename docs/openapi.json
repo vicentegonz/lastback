@@ -228,11 +228,146 @@
         "tags": ["Accounts"],
         "responses": {
           "200": {
-            "description": "A JSON array with the user information",
+            "description": "A JSON object with the user information",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"      
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a list of zones",
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "An array of stores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a store by ID",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the store information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Store"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/events/": {
+      "post": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to create events on every store",
+        "tags": ["Operations"],
+        "responses": {
+          "201": {
+            "description": "An array of the created events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/events": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get the events of a store",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of the store events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
                 }
               }
             }
@@ -294,77 +429,11 @@
         ],
         "responses": {
           "200": {
-            "description": "A JSON array of a zones",
+            "description": "An array of zones",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Zone"      
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      }
-    },
-    "/v1/operations/stores/": {
-      "get": {
-        "security": [
-          {
-            "JSONWebTokenAuth": []
-          }
-        ],
-        "summary": "Endpoint to get a list of zones",
-        "tags": ["Operations"],
-        "responses": {
-          "200": {
-            "description": "A JSON array of stores",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Store"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      }
-    },
-    "/v1/operations/stores/{id}": {
-      "get": {
-        "security": [
-          {
-            "JSONWebTokenAuth": []
-          }
-        ],
-        "summary": "Endpoint to get a store by ID",
-        "tags": ["Operations"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Zone ID",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A JSON array of a store",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Store"      
+                  "$ref": "#/components/schemas/Zone"
                 }
               }
             }
@@ -471,7 +540,7 @@
           "picture": {
             "type": "string",
             "example": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c"
-          }, 
+          },
           "role": {
             "type": "integer",
             "example": 1
@@ -497,6 +566,21 @@
           "zone": {
             "type": "integer",
             "example": 1
+          }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "store": {
+            "type": "integer",
+            "example": 1
+          },
+          "data": {
+            "type": "object",
+            "example": {
+              "event": "This is an event example content"
+            }
           }
         }
       }

@@ -29,13 +29,13 @@ class ZoneDetail(generics.RetrieveAPIView):
 
 class CreateEvents(APIView):
     def post(self, request, *args, **kwargs):
+        # Make call to external Api of recommendation for this store.
+        # Create event with this recommendation.
+        events = [
+            Event.objects.create(store=store, data={"event": "Sample event content"})
+            for store in Store.objects.all()
+        ]
 
-        for store in Store.objects.all():
-            # Make call to external Api of recommendation for this store.
-            # Create event with this recommendation.
-            Event.objects.create(store=store, data={"event": "fake event"})
-
-        events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
