@@ -8,5 +8,5 @@ class VersioningClass(URLPathVersioning):
     allowed_versions = ALLOWED_VERSIONS
 
 
-class VersioningMixin:  # pylint: disable=R0903
+class VersioningMixin:
     versioning_class = VersioningClass

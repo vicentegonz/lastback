@@ -3,7 +3,7 @@ from google.auth.transport import requests
 from google.oauth2 import id_token
 
 
-class Google:  # pylint: disable=R0903
+class Google:
     """Google class to fetch the user info and return it"""
 
     @staticmethod

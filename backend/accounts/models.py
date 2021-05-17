@@ -6,6 +6,10 @@ from django.contrib.auth.models import (
 from django.db import models
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from backend.common.queries import ExtendedQ
+
+from .push_notifications import Notificator
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, given_name, family_name, picture):
@@ -46,3 +50,49 @@ class User(AbstractBaseUser, PermissionsMixin):
     def generate_tokens(self):
         refresh = RefreshToken.for_user(self)
         return {"refresh": str(refresh), "access": str(refresh.access_token)}
+
+
+class DeviceQuerySet(models.QuerySet):
+    def send_push_notification(self, body, data=None):
+        notificator = Notificator()
+
+        for device in self:
+            notificator.send(device=device, body=body, data=data)
+
+
+class DeviceManager(models.Manager):
+    def get_queryset(self):
+        return DeviceQuerySet(self.model, using=self._db)
+
+
+class Device(models.Model):
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=ExtendedQ(android_id__isnull=False)
+                ^ ExtendedQ(ios_id__isnull=False),
+                name="exactly_one_os_id",
+            )
+        ]
+
+    user = models.ForeignKey(
+        User, null=True, related_name="devices", on_delete=models.SET_NULL
+    )
+
+    android_id = models.CharField(unique=True, null=True, max_length=255)
+    ios_id = models.CharField(unique=True, null=True, max_length=255)
+
+    expo_push_token = models.CharField(unique=True, null=True, max_length=255)
+
+    objects = DeviceManager()
+
+    @property
+    def os(self):
+        return (self.android_id and "Android") or (self.ios_id and "iOS")
+
+    @property
+    def os_id(self):
+        return self.android_id or self.ios_id
+
+    def __str__(self):
+        return f"{self.user or 'Some one'}’s {self.os}"

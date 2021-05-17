@@ -1,12 +1,10 @@
 [MASTER]
 
-disable = C0114,C0115,C0116
+disable = C0114,C0115,C0116,W1202,R0903
 django-settings-module = backend.settings
 load-plugins = pylint_django
 
 [FORMAT]
 
 max-line-length = 88
-
-good-names=pk
-
+good-names = pk,os
