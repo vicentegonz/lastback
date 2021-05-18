@@ -6,16 +6,16 @@ from .models import Event, Store, Zone
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Store
-        fields = ["address", "zone"]
+        fields = ["id", "address", "zone"]
 
 
 class ZoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Zone
-        fields = ["name"]
+        fields = ["id", "name"]
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ["store", "data"]
+        fields = ["id", "store", "data", "created_at"]

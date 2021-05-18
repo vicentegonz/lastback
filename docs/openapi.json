@@ -650,6 +650,10 @@
       "Zone": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
           "name": {
             "type": "string",
             "example": "Sample zone"
@@ -659,6 +663,10 @@
       "Store": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
           "name": {
             "type": "string",
             "example": "Sample store"
@@ -672,9 +680,18 @@
       "Event": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
           "store": {
             "type": "integer",
             "example": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-10-20T10:30:00.998000Z"
           },
           "data": {
             "type": "object",
