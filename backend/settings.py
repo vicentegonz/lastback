@@ -26,6 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
 
+API_KEY_CUSTOM_HEADER = "HTTP_KPI_API_KEY"
+
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "default-google-id")
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")
@@ -65,6 +67,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
     "rest_framework",
+    "rest_framework_api_key",
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
     "backend.docs.apps.DocsConfig",

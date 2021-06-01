@@ -139,6 +139,14 @@ python-versions = ">=3.5"
 django = ">=2.2"
 
 [[package]]
+name = "djangorestframework-api-key"
+version = "2.0.0"
+description = "API key permissions for the Django REST Framework"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "djangorestframework-simplejwt"
 version = "4.6.0"
 description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
@@ -594,7 +602,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "659ca63bbfa5862336c4505a1e7a8607fab7a34149f96ffb567717a4d1defd98"
+content-hash = "4837d541c16e4b804f1405bdf1cf96c9bc8a6ce24e0e09f179a2769948a0d5cc"
 
 [metadata.files]
 appdirs = [
@@ -647,6 +655,10 @@ django-cors-headers = [
 djangorestframework = [
     {file = "djangorestframework-3.12.4-py3-none-any.whl", hash = "sha256:6d1d59f623a5ad0509fe0d6bfe93cbdfe17b8116ebc8eda86d45f6e16e819aaf"},
     {file = "djangorestframework-3.12.4.tar.gz", hash = "sha256:f747949a8ddac876e879190df194b925c177cdeb725a099db1460872f7c0a7f2"},
+]
+djangorestframework-api-key = [
+    {file = "djangorestframework-api-key-2.0.0.tar.gz", hash = "sha256:61cdb75f16dc4425e0c8587c71f1d890963422c51b4192eec259c6446d7de976"},
+    {file = "djangorestframework_api_key-2.0.0-py3-none-any.whl", hash = "sha256:631d1898510f6adfd4585539daf5f91630d3a92f1f4b1faa029bd45ccc379736"},
 ]
 djangorestframework-simplejwt = [
     {file = "djangorestframework_simplejwt-4.6.0-py3-none-any.whl", hash = "sha256:bd587700b6ab34a6c6b12d426cce4fa580d57ef1952ad4ba3b79707784619ed3"},

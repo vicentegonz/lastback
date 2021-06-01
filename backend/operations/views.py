@@ -2,9 +2,10 @@ from django.http import Http404
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_api_key.permissions import HasAPIKey
 
-from .models import Event, Store, Zone
-from .serializers import EventSerializer, StoreSerializer, ZoneSerializer
+from .models import KPI, Event, Store, Zone
+from .serializers import EventSerializer, KPISerializer, StoreSerializer, ZoneSerializer
 
 
 class StoreList(generics.ListAPIView):
@@ -51,6 +52,11 @@ class ListEvents(APIView):
     def get(self, request, pk, *args, **kwargs):
         store = self.get_object(pk)
         events = Event.objects.filter(store_id=store.id)
-        # Send notification with each event to all the users related to this store.
         serializer = EventSerializer(events, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+class KPICreate(generics.CreateAPIView):
+    permission_classes = [HasAPIKey]
+    serializer_class = KPISerializer
+    queryset = KPI.objects.all()

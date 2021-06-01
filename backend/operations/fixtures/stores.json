@@ -1,7 +1,7 @@
 [
   {
     "model": "operations.Store",
-    "pk": 1,
+    "pk": 2088,
     "fields": {
         "zone_id": 1,
         "address": "Address s1",
@@ -12,7 +12,7 @@
   },
   {
     "model": "operations.Store",
-    "pk": 2,
+    "pk": 2047,
     "fields": {
         "zone_id": 1,
         "address": "Address s2",

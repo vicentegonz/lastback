@@ -16,6 +16,7 @@ google-api-python-client = "^2.2.0"
 djangorestframework-simplejwt = "^4.6.0"
 django-cors-headers = "^3.7.0"
 exponent-server-sdk = "^2.0.0"
+djangorestframework-api-key = "2.*"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.7.4"

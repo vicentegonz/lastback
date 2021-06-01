@@ -31,3 +31,12 @@ class Event(models.Model):
         if self._state.adding:
             self.store.notify_users(body="New event created!")
         super().save(*args, **kwargs)
+
+
+class KPI(models.Model):
+    name = models.CharField(max_length=255)
+    value = models.FloatField()
+    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="KPIs")
+    timestamp = models.DateTimeField()
+    created_at = models.DateTimeField("created_at", auto_now_add=True)
+    updated_at = models.DateTimeField("updated_at", auto_now=True)

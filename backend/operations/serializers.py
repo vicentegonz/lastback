@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Event, Store, Zone
+from .models import KPI, Event, Store, Zone
 
 
 class StoreSerializer(serializers.ModelSerializer):
@@ -19,3 +19,9 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ["id", "store", "data", "created_at"]
+
+
+class KPISerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KPI
+        fields = ["name", "value", "store", "timestamp"]
