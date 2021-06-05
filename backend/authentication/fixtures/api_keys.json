@@ -1,0 +1,14 @@
+[
+  {
+    "model": "rest_framework_api_key.apikey",
+    "pk": "EZYGDrc6.pbkdf2_sha256$260000$GKbp7ljByEFOdgIcXBwGKj$4Myb+6nCKgCRNNNUzqvP9e2Arz2951nUWZimAAymbZA=",
+    "fields": {
+      "prefix": "EZYGDrc6",
+      "hashed_key": "pbkdf2_sha256$260000$GKbp7ljByEFOdgIcXBwGKj$4Myb+6nCKgCRNNNUzqvP9e2Arz2951nUWZimAAymbZA=",
+      "created": "2021-06-04T16:55:23.511Z",
+      "name": "client",
+      "revoked": false,
+      "expiry_date": null
+    }
+  }
+]

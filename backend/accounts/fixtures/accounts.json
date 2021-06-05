@@ -159,6 +159,19 @@
     "model": "accounts.User",
     "pk": 13,
     "fields": {
+        "email": "vureyes@uc.cl",
+        "given_name": "Vicente",
+        "family_name": "Reyes",
+        "picture": "",
+        "role": 1,
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "accounts.User",
+    "pk": 14,
+    "fields": {
         "email": "gabriel.vidal@arcoprime.cl",
         "given_name": "",
         "family_name": "",
@@ -170,7 +183,7 @@
   },
   {
     "model": "accounts.User",
-    "pk": 14,
+    "pk": 15,
     "fields": {
         "email": "alfredo.damota@arcoprime.cl",
         "given_name": "",
@@ -183,7 +196,7 @@
   },
   {
     "model": "accounts.User",
-    "pk": 15,
+    "pk": 16,
     "fields": {
         "email": "david.montes@arcoprime.cl",
         "given_name": "",

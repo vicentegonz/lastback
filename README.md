@@ -88,6 +88,24 @@ You will notice that, inside the `backend` folder, there are two sub-folders. Ea
 
 This application comes loaded with interactive documentation. You will find a file named `openapi.json` inside the `docs` file. This file corresponds to the [OpenAPI](https://swagger.io/specification/) spec of the API, and will get rendered by [SwaggerUI](https://swagger.io/tools/swagger-ui/) at `/docs` and by [ReDoc](https://redoc.ly/redoc) at `/docs/redoc` (enter through the browser). Also, you can get the JSON spec at `/docs/openapi.json` (this will return the spec located at `docs/openapi.json`).
 
+## API Keys
+
+There is a fixture that creates an API key for the staging environment _automagically_. This API key is named `client`, and its value is `EZYGDrc6.kibJkIUjJOCuUj6lNlurTMTuxR1ug0x9`. **This should not work on the production environment**. To create an API key on production, enter to the Django shell using `python manage.py shell` inside the container and execute the following commands:
+
+```py
+from rest_framework_api_key.models import APIKey
+
+APIKey.objects.create_key(name="api_key_name")
+```
+
+This should print something like:
+
+```sh
+(<APIKey: api_key_name>, 'EZYGDrc6.kibJkIUjJOCuUj6lNlurTMTuxR1ug0x9')
+```
+
+**Save the string on the right side of this tuple**. This is the API key and **once exited, it can never be obtained back**.
+
 ## Running the linters
 
 This project includes quite some linters. `black`, `flake8`, `isort` and `pylint` are our Python linters. These linters will need to be passing throughout the whole development, and will be enforced by the CI _pipeline_. You will first need to install a virtual environment with all the dependencies to run the tests. To achieve this, run:
