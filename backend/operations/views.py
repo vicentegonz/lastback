@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
 from .models import KPI, Event, Store, Zone
+from .paginations import EventPagination
 from .serializers import EventSerializer, KPISerializer, StoreSerializer, ZoneSerializer
 
 
@@ -41,19 +42,22 @@ class CreateEvents(APIView):
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
 
-class ListEvents(APIView):
-    @classmethod
-    def get_object(cls, pk):
+class ListEvents(generics.ListAPIView):
+    pagination_class = EventPagination
+
+    def get_object(self):
         try:
+            pk = self.kwargs["pk"]
             return Store.objects.get(pk=pk)
         except Store.DoesNotExist as store_no_exist:
             raise Http404 from store_no_exist
 
-    def get(self, request, pk, *args, **kwargs):
-        store = self.get_object(pk)
-        events = Event.objects.filter(store_id=store.id)
-        serializer = EventSerializer(events, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    def get(self, request, *args, **kwargs):
+        store = self.get_object()
+        events = Event.objects.filter(store_id=store.id).order_by("-id")
+        page = self.paginate_queryset(events)
+        serializer = EventSerializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
 
 
 class KPICreate(generics.CreateAPIView):
