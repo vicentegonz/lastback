@@ -62,5 +62,10 @@ class ListEvents(generics.ListAPIView):
 
 class KPICreate(generics.CreateAPIView):
     permission_classes = [HasAPIKey]
-    serializer_class = KPISerializer
     queryset = KPI.objects.all()
+    serializer_class = KPISerializer
+
+    def get_serializer(self, *args, **kwargs):
+        if isinstance(kwargs.get("data", {}), list):
+            kwargs["many"] = True
+        return super().get_serializer(*args, **kwargs)

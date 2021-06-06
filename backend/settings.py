@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
 
-API_KEY_CUSTOM_HEADER = "HTTP_KPI_API_KEY"
+API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
 
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "default-google-id")
 
