@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 
 from backend.accounts.models import User
@@ -38,5 +40,15 @@ class KPI(models.Model):
     value = models.FloatField()
     store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="KPIs")
     timestamp = models.DateTimeField()
+    created_at = models.DateTimeField("created_at", auto_now_add=True)
+    updated_at = models.DateTimeField("updated_at", auto_now=True)
+
+
+class ServiceIndicator(models.Model):
+    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="services")
+    name = models.CharField(max_length=255)
+    value = models.FloatField()
+    amount_of_surveys = models.IntegerField()
+    date = models.DateField("date", default=date.today)
     created_at = models.DateTimeField("created_at", auto_now_add=True)
     updated_at = models.DateTimeField("updated_at", auto_now=True)
