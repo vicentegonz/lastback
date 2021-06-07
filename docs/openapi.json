@@ -462,6 +462,46 @@
         }
       }
     },
+    "/v1/operations/stores/{id}/kpi": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get the kpis of a store",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "KPI list",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of the store kpis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KPI"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
     "/v1/operations/zones/": {
       "get": {
         "security": [
@@ -854,6 +894,7 @@
         "properties": {
           "name": {
             "type": "string",
+
             "example": "KPI-test-name"
           },
           "value": {
@@ -877,6 +918,7 @@
         "items": {
           "$ref": "#/components/schemas/KPI"
         }
+
       }
     }
   }

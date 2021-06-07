@@ -69,3 +69,18 @@ class KPICreate(generics.CreateAPIView):
         if isinstance(kwargs.get("data", {}), list):
             kwargs["many"] = True
         return super().get_serializer(*args, **kwargs)
+
+
+class ListKPI(APIView):
+    @classmethod
+    def get_object(cls, pk):
+        try:
+            return Store.objects.get(pk=pk)
+        except Store.DoesNotExist as store_no_exist:
+            raise Http404 from store_no_exist
+
+    def get(self, request, pk, *args, **kwargs):
+        store = self.get_object(pk)
+        kpis = KPI.objects.filter(store=store.id)
+        serializer = KPISerializer(kpis, many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
