@@ -17,7 +17,7 @@ class GoogleSocialAuthSerializer(serializers.Serializer):  # pylint: disable=W02
                 "The token is invalid or expired. Please login again."
             )
 
-        if user_data.get("aud") != settings.GOOGLE_CLIENT_ID:
+        if user_data.get("aud") not in settings.GOOGLE_CLIENT_IDS:
             raise AuthenticationFailed("Oops, who are you?")
 
         return register_social_user(

@@ -28,7 +28,16 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
 
 API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
 
-GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "default-google-id")
+GOOGLE_CLIENT_ID_EXPO = os.environ.get("GOOGLE_CLIENT_ID_EXPO")
+GOOGLE_CLIENT_ID_ANDROID = os.environ.get("GOOGLE_CLIENT_ID_ANDROID")
+GOOGLE_CLIENT_ID_IOS = os.environ.get("GOOGLE_CLIENT_ID_IOS")
+
+GOOGLE_CLIENT_IDS = list(
+    filter(
+        lambda x: x is not None,
+        [GOOGLE_CLIENT_ID_EXPO, GOOGLE_CLIENT_ID_ANDROID, GOOGLE_CLIENT_ID_IOS],
+    )
+)
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")
 ALLOWED_HOSTS = "*"
