@@ -36,10 +36,12 @@ class Event(models.Model):
 
 
 class KPI(models.Model):
+    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="KPIs")
     name = models.CharField(max_length=255)
     value = models.FloatField()
-    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="KPIs")
-    timestamp = models.DateTimeField()
+    category = models.CharField(max_length=255)
+    metadata = models.JSONField(default=dict)
+    date = models.DateField("date", default=date.today)
     created_at = models.DateTimeField("created_at", auto_now_add=True)
     updated_at = models.DateTimeField("updated_at", auto_now=True)
 

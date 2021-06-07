@@ -24,7 +24,7 @@ class EventSerializer(serializers.ModelSerializer):
 class KPISerializer(serializers.ModelSerializer):
     class Meta:
         model = KPI
-        fields = ["name", "value", "store", "timestamp"]
+        fields = ["store", "name", "value", "metadata", "category", "date"]
 
 
 class ServiceSerializer(serializers.ModelSerializer):

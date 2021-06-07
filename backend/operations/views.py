@@ -69,15 +69,29 @@ class ListEvents(generics.ListAPIView):
         return self.get_paginated_response(serializer.data)
 
 
-class KPICreate(generics.CreateAPIView):
+class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
     permission_classes = [HasAPIKey]
-    queryset = KPI.objects.all()
     serializer_class = KPISerializer
 
-    def get_serializer(self, *args, **kwargs):
-        if isinstance(kwargs.get("data", {}), list):
-            kwargs["many"] = True
-        return super().get_serializer(*args, **kwargs)
+    def get_object(self):
+        if not self.request.data.get("date"):
+            raise KPI.DoesNotExist
+
+        date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
+        return KPI.objects.get(
+            store=self.request.data.get("store"),
+            name=self.request.data.get("name"),
+            category=self.request.data.get("category"),
+            date__day=date.day,
+            date__month=date.month,
+            date__year=date.year,
+        )
+
+    def put(self, request, **kwargs):
+        try:
+            return self.partial_update(request)
+        except KPI.DoesNotExist:
+            return self.create(request)
 
 
 class ListKPI(APIView):
