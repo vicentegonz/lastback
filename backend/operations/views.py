@@ -75,9 +75,9 @@ class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
 
     def get_object(self):
         if not self.request.data.get("date"):
-            raise KPI.DoesNotExist
-
-        date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
+            date = datetime.utcnow()
+        else:
+            date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
         return KPI.objects.get(
             store=self.request.data.get("store"),
             name=self.request.data.get("name"),
@@ -118,8 +118,9 @@ class ServiceIndicatorCreate(
 
     def get_object(self):
         if not self.request.data.get("date"):
-            raise ServiceIndicator.DoesNotExist
-        date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
+            date = datetime.utcnow()
+        else:
+            date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
         return ServiceIndicator.objects.get(
             store=self.request.data.get("store"),
             name=self.request.data.get("name"),
