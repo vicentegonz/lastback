@@ -54,3 +54,8 @@ class ServiceIndicator(models.Model):
     date = models.DateField("date", default=date.today)
     created_at = models.DateTimeField("created_at", auto_now_add=True)
     updated_at = models.DateTimeField("updated_at", auto_now=True)
+
+
+class Product(models.Model):
+    description = models.CharField(max_length=255)
+    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="products")
