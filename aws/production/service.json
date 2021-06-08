@@ -1,0 +1,13 @@
+{
+  "cluster": "production",
+  "serviceName": "application-production",
+  "taskDefinition": "application-production",
+  "desiredCount": 1,
+  "loadBalancers": [
+    {
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-2:556359875842:targetgroup/ecs-target-group-production/e92f79918830bdba",
+      "containerName": "web",
+      "containerPort": 8000
+    }
+  ]
+}

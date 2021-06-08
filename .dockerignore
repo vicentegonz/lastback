@@ -24,4 +24,5 @@
 
 # Include: misc stuff
 !entrypoint.sh
+!scripts/production-release.sh
 !scripts/staging-release.sh

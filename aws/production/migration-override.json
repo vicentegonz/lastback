@@ -1,0 +1,9 @@
+{
+  "containerOverrides": [
+    {
+      "name": "web",
+      "command": ["sh", "./scripts/production-release.sh"]
+    }
+  ],
+  "taskRoleArn": "arn:aws:iam::556359875842:role/ecsTaskExecutionRole"
+}
