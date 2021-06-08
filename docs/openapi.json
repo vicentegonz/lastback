@@ -462,20 +462,20 @@
         }
       }
     },
-    "/v1/operations/stores/{id}/kpi": {
+    "/v1/operations/stores/{id}/kpis": {
       "get": {
+        "summary": "Endpoint to get the KPIs of a store",
         "security": [
           {
             "JSONWebTokenAuth": []
           }
         ],
-        "summary": "Endpoint to get the kpis of a store",
         "tags": ["Operations"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "KPI list",
+            "description": "Store ID",
             "required": true,
             "schema": {
               "type": "integer"
@@ -484,7 +484,7 @@
         ],
         "responses": {
           "200": {
-            "description": "An array of the store kpis",
+            "description": "An array of the store KPIs",
             "content": {
               "application/json": {
                 "schema": {
@@ -498,6 +498,183 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/service-indicators": {
+      "get": {
+        "summary": "Endpoint to get the Service Indicators of a store",
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/kpis/": {
+      "put": {
+        "summary": "Endpoint to create a KPI",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "ApiKeyAuth" : []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KPI"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KPI"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "StoreDoesNotExist": {
+                    "value": {
+                      "store": [
+                        "Invalid pk \"1\" - object does not exist."
+                      ]
+                    }
+                  },
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  },
+                  "InvalidField": {
+                    "value": {
+                      "value": [
+                        "A valid number is required"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/service-indicators/": {
+      "put": {
+        "summary": "Endpoint to create/update Stores' service indicator",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "ApiKeyAuth" : []
+          }
+        ],
+        "requestBody": {
+          "description": "Service Indicator Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+            }
+        }
+      },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK, Service Indicator has been successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "StoreDoesNotExist": {
+                    "value": {
+                      "store": [
+                        "Invalid pk \"1\" - object does not exist."
+                      ]
+                    }
+                  },
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  },
+                  "InvalidField": {
+                    "value": {
+                      "value": [
+                        "A valid number is required"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -553,240 +730,11 @@
         ],
         "responses": {
           "200": {
-            "description": "An array of zones",
+            "description": "A JSON object with the zone information",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Zone"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      }
-    },
-    "/v1/operations/kpi/": {
-      "post": {
-        "summary": "Endpoint to create Stores' KPIs on given datetimes",
-        "tags": ["Operations"],
-        "security": [
-          {
-            "ApiKeyAuth" : []
-          }
-        ],
-        "requestBody": {
-          "description": "KPI Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/KPI"
-                  },
-                  {
-                    "$ref": "#/components/schemas/KPIArray"
-                  }
-                ]
-              },
-              "examples": {
-                "SingleKPI": {
-                  "$ref": "#/components/schemas/KPI"
-                },
-                "KPIArray": {
-                  "value": [
-                    {
-                      "name": "first-KPI",
-                      "value": 1,
-                      "category": "category-1",
-                      "store": 1,
-                      "date": "2020-01-20"
-                    },
-                    {
-                      "name": "second-KPI",
-                      "value": 2,
-                      "category": "category-2",
-                      "store": 2,
-                      "metadata": {
-                        "metadata-first-parameter": "metadata_value",
-                        "metadata-second-parameter": "metadata_value"
-                      },
-                      "date": "2020-10-20"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "SingleKPI": {
-                    "$ref": "#/components/schemas/KPI"
-                  },
-                  "KPIArray": {
-                    "value": [
-                      {
-                        "name": "first-KPI",
-                        "value": 1,
-                        "store": 1,
-                        "timestamp": "2020-10-20T10:30:00.998000Z"
-                      },
-                      {
-                        "name": "second-KPI",
-                        "value": 2,
-                        "store": 2,
-                        "timestamp": "2020-09-20T10:30:00.998000Z"
-                      }
-                    ]
-                  }
-                },
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/KPI"
-                    },
-                    {
-                      "$ref": "#/components/schemas/KPIArray"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "StoreDoesNotExist": {
-                    "value": {
-                      "store": [
-                        "Invalid pk \"1\" - object does not exist."
-                      ]
-                    }
-                  },
-                  "RequiredFieldMissing": {
-                    "value": {
-                      "parameter": [
-                        "This field is required."
-                      ]
-                    }
-                  },
-                  "InvalidField": {
-                    "value": {
-                      "value": [
-                        "A valid number is required"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      }
-    },
-    "/v1/operations/service/": {
-      "put": {
-        "summary": "Endpoint to create/update Stores' service indicator",
-        "tags": ["Operations"],
-        "security": [
-          {
-            "ApiKeyAuth" : []
-          }
-        ],
-        "requestBody": {
-          "description": "Service Indicator Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema":{
-                  "$ref": "#/components/schemas/ServiceIndicator"
-                }
-            }
-        }
-      },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema":{
-                  "$ref": "#/components/schemas/ServiceIndicator"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK, Service Indicator has been successfully updated",
-            "content": {
-              "application/json": {
-                "schema":{
-                  "$ref": "#/components/schemas/ServiceIndicator"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "StoreDoesNotExist": {
-                    "value": {
-                      "store": [
-                        "Invalid pk \"1\" - object does not exist."
-                      ]
-                    }
-                  },
-                  "RequiredFieldMissing": {
-                    "value": {
-                      "parameter": [
-                        "This field is required."
-                      ]
-                    }
-                  },
-                  "InvalidField": {
-                    "value": {
-                      "value": [
-                        "A valid number is required"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/operations/stores/{store_id}/services": {
-      "get": {
-        "summary": "Endpoint to get a Store's Service Indicators",
-        "tags": ["Operations"],
-        "security": [
-          {
-            "JSONWebTokenAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema":{
-                  "$ref": "#/components/schemas/ServiceIndicatorArray"
                 }
               }
             }
@@ -946,7 +894,8 @@
         "properties": {
           "id": {
             "type": "integer",
-            "example": 1
+            "example": 1,
+            "readOnly": true
           },
           "name": {
             "type": "string",
@@ -959,7 +908,8 @@
         "properties": {
           "id": {
             "type": "integer",
-            "example": 1
+            "example": 1,
+            "readOnly": true
           },
           "name": {
             "type": "string",
@@ -998,80 +948,66 @@
       "KPI": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
           "name": {
             "type": "string",
-
-            "example": "KPI-test-name"
+            "example": "Example KPI"
           },
           "value": {
             "type": "number",
             "example": 200
           },
           "store": {
-            "description": "Store Id",
             "type": "integer",
             "example": 1
           },
           "category": {
             "type": "string",
-            "example": "category-example"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/AnyJSON"
+            "example": "Example category"
           },
           "date": {
             "type": "string",
             "format": "date",
             "example": "2020-10-20"
+          },
+          "metadata": {
+            "type": "object"
           }
         }
-      },
-      "KPIArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/KPI"
-        }
-
       },
       "ServiceIndicator": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
           "name": {
             "type": "string",
-
-            "example": "ServiceIndicator-test-name"
+            "example": "Example Service Indicator"
           },
           "value": {
             "type": "number",
             "example": 200
           },
           "store": {
-            "description": "Store Id",
             "type": "integer",
             "example": 1
           },
           "amount_of_surveys": {
-            "description": "Store Id",
             "type": "integer",
-            "example": 1
+            "example": 47
           },
           "date": {
             "type": "string",
             "format": "date",
             "example": "2020-10-20"
           }
-        }
-      },
-      "ServiceIndicatorArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ServiceIndicator"
-        }
-      },
-      "AnyJSON": {
-        "type": "object",
-        "example": {
-          "metadata_parameter": "metadata_value"
         }
       }
     }
