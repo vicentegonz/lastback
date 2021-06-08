@@ -1,170 +1,866 @@
 [
-    {
-        "model": "operations.KPI",
-        "pk": 1,
-        "fields": {
-            "name": "KPI-1",
-            "value": 100,
-            "category": "X-Type",
-            "metadata": {
-                "metadata_field": "metadata_value"
-            },
-            "date": "2020-10-13",
-            "store_id": 2088,
-            "created_at": "2020-10-20T10:30:00.998Z",
-            "updated_at": "2020-10-20T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 2,
-        "fields": {
-            "name": "KPI-2",
-            "value": 200,
-            "category": "Y-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2"
-            },
-            "date": "2020-10-14",
-            "store_id": 2047,
-            "created_at": "2020-10-14T10:30:00.998Z",
-            "updated_at": "2020-10-14T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 3,
-        "fields": {
-            "name": "KPI-3",
-            "value": 300,
-            "category": "X-Type",
-            "metadata": {
-                "metadata_field": "metadata_value"
-            },
-            "date": "2020-10-15",
-            "store_id": 2088,
-            "created_at": "2020-10-15T10:30:00.998Z",
-            "updated_at": "2020-10-15T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 4,
-        "fields": {
-            "name": "KPI-4",
-            "value": 400,
-            "category": "Y-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2",
-                "metadata_field_3": "metadata_value_3"
-            },
-            "date": "2020-10-16",
-            "store_id": 2047,
-            "created_at": "2020-10-16T10:30:00.998Z",
-            "updated_at": "2020-10-16T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 5,
-        "fields": {
-            "name": "KPI-5",
-            "value": 500,
-            "category": "X-Type",
-            "metadata": {
-                "metadata_field": "metadata_value"
-            },
-            "date": "2020-10-17",
-            "store_id": 2088,
-            "created_at": "2020-10-17T10:30:00.998Z",
-            "updated_at": "2020-10-17T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 6,
-        "fields": {
-            "name": "KPI-6",
-            "value": 600,
-            "category": "Y-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2"
-            },
-            "date": "2020-10-18",
-            "store_id": 2047,
-            "created_at": "2020-10-18T10:30:00.998Z",
-            "updated_at": "2020-10-18T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 7,
-        "fields": {
-            "name": "KPI-7",
-            "value": 700,
-            "category": "X-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2",
-                "metadata_field_3": "metadata_value_3"
-            },
-            "date": "2020-10-19",
-            "store_id": 2088,
-            "created_at": "2020-10-19T10:30:00.998Z",
-            "updated_at": "2020-10-19T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 8,
-        "fields": {
-            "name": "KPI-8",
-            "value": 800,
-            "category": "Y-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2",
-                "metadata_field_3": "metadata_value_3"
-            },
-            "date": "2020-10-20",
-            "store_id": 2047,
-            "created_at": "2020-10-20T10:30:00.998Z",
-            "updated_at": "2020-10-20T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 9,
-        "fields": {
-            "name": "KPI-9",
-            "value": 900,
-            "category": "X-Type",
-            "metadata": {
-                "metadata_field": "metadata_value",
-                "metadata_field_2": "metadata_value_2",
-                "metadata_field_3": "metadata_value_3"
-            },
-            "date": "2020-10-20",
-            "store_id": 2047,
-            "created_at": "2020-10-20T10:30:00.998Z",
-            "updated_at": "2020-10-20T10:30:00.998Z"
-        }
-    },
-    {
-        "model": "operations.KPI",
-        "pk": 10,
-        "fields": {
-            "name": "KPI-10",
-            "value": 1000,
-            "category": "W-Type",
-            "metadata": {},
-            "date": "2020-10-20",
-            "store_id": 2047,
-            "created_at": "2020-10-20T10:30:00.998Z",
-            "updated_at": "2020-10-20T10:30:00.998Z"
-        }
+  {
+    "model": "operations.KPI",
+    "pk": 1,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
     }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 3,
+    "fields": {
+      "name": "KPI-1",
+      "value": 470,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-08T10:30:00.998Z",
+      "updated_at": "2021-06-08T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 5,
+    "fields": {
+      "name": "KPI-1",
+      "value": 490,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 6,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 7,
+    "fields": {
+      "name": "KPI-1",
+      "value": 525,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 8,
+    "fields": {
+      "name": "KPI-1",
+      "value": 550,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 9,
+    "fields": {
+      "name": "KPI-1",
+      "value": 570,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 10,
+    "fields": {
+      "name": "KPI-1",
+      "value": 590,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 11,
+    "fields": {
+      "name": "KPI-1",
+      "value": 600,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 12,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 13,
+    "fields": {
+      "name": "KPI-1",
+      "value": 530,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 14,
+    "fields": {
+      "name": "KPI-1",
+      "value": 520,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 15,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 16,
+    "fields": {
+      "name": "KPI-1",
+      "value": 450,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 17,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 18,
+    "fields": {
+      "name": "KPI-2",
+      "value": 510,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 19,
+    "fields": {
+      "name": "KPI-2",
+      "value": 520,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 20,
+    "fields": {
+      "name": "KPI-2",
+      "value": 530,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 21,
+    "fields": {
+      "name": "KPI-2",
+      "value": 515,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 22,
+    "fields": {
+      "name": "KPI-2",
+      "value": 590,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 23,
+    "fields": {
+      "name": "KPI-2",
+      "value": 580,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 24,
+    "fields": {
+      "name": "KPI-2",
+      "value": 600,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 25,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 26,
+    "fields": {
+      "name": "KPI-2",
+      "value": 520,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 27,
+    "fields": {
+      "name": "KPI-2",
+      "value": 535,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 28,
+    "fields": {
+      "name": "KPI-2",
+      "value": 490,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 29,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 30,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 31,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 32,
+    "fields": {
+      "name": "KPI-2",
+      "value": 510,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 33,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 34,
+    "fields": {
+      "name": "KPI-2",
+      "value": 530,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 35,
+    "fields": {
+      "name": "KPI-2",
+      "value": 515,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 36,
+    "fields": {
+      "name": "KPI-2",
+      "value": 590,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 37,
+    "fields": {
+      "name": "KPI-2",
+      "value": 580,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 38,
+    "fields": {
+      "name": "KPI-2",
+      "value": 600,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 39,
+    "fields": {
+      "name": "KPI-2",
+      "value": 500,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 40,
+    "fields": {
+      "name": "KPI-2",
+      "value": 520,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 41,
+    "fields": {
+      "name": "KPI-2",
+      "value": 535,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 42,
+    "fields": {
+      "name": "KPI-2",
+      "value": 490,
+      "category": "Y-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 43,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 44,
+    "fields": {
+      "name": "KPI-1",
+      "value": 470,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-08T10:30:00.998Z",
+      "updated_at": "2021-06-08T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 45,
+    "fields": {
+      "name": "KPI-1",
+      "value": 490,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 46,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 47,
+    "fields": {
+      "name": "KPI-1",
+      "value": 525,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 48,
+    "fields": {
+      "name": "KPI-1",
+      "value": 550,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 49,
+    "fields": {
+      "name": "KPI-1",
+      "value": 570,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 50,
+    "fields": {
+      "name": "KPI-1",
+      "value": 590,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 51,
+    "fields": {
+      "name": "KPI-1",
+      "value": 600,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 52,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 53,
+    "fields": {
+      "name": "KPI-1",
+      "value": 530,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 54,
+    "fields": {
+      "name": "KPI-1",
+      "value": 520,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 55,
+    "fields": {
+      "name": "KPI-1",
+      "value": 500,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.KPI",
+    "pk": 56,
+    "fields": {
+      "name": "KPI-1",
+      "value": 450,
+      "category": "X-Type",
+      "metadata": {
+        "metadata_field": "metadata_value"
+      },
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2020-10-17T10:30:00.998Z",
+      "updated_at": "2020-10-17T10:30:00.998Z"
+    }
+  }
 ]
