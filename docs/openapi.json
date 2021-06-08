@@ -601,14 +601,20 @@
                     {
                       "name": "first-KPI",
                       "value": 1,
+                      "category": "category-1",
                       "store": 1,
-                      "timestamp": "2020-10-20T10:30:00.998000Z"
+                      "date": "2020-01-20"
                     },
                     {
                       "name": "second-KPI",
                       "value": 2,
+                      "category": "category-2",
                       "store": 2,
-                      "timestamp": "2020-09-20T10:30:00.998000Z"
+                      "metadata": {
+                        "metadata-first-parameter": "metadata_value",
+                        "metadata-second-parameter": "metadata_value"
+                      },
+                      "date": "2020-10-20"
                     }
                   ]
                 }
@@ -681,6 +687,106 @@
                       ]
                     }
                   }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/service/": {
+      "put": {
+        "summary": "Endpoint to create/update Stores' service indicator",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "ApiKeyAuth" : []
+          }
+        ],
+        "requestBody": {
+          "description": "Service Indicator Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema":{
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+            }
+        }
+      },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK, Service Indicator has been successfully updated",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "StoreDoesNotExist": {
+                    "value": {
+                      "store": [
+                        "Invalid pk \"1\" - object does not exist."
+                      ]
+                    }
+                  },
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  },
+                  "InvalidField": {
+                    "value": {
+                      "value": [
+                        "A valid number is required"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{store_id}/services": {
+      "get": {
+        "summary": "Endpoint to get a Store's Service Indicators",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "$ref": "#/components/schemas/ServiceIndicatorArray"
                 }
               }
             }
@@ -906,10 +1012,17 @@
             "type": "integer",
             "example": 1
           },
-          "timestamp": {
+          "category": {
             "type": "string",
-            "format": "date-time",
-            "example": "2020-10-20T10:30:00.998000Z"
+            "example": "category-example"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AnyJSON"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-10-20"
           }
         }
       },
@@ -919,6 +1032,47 @@
           "$ref": "#/components/schemas/KPI"
         }
 
+      },
+      "ServiceIndicator": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+
+            "example": "ServiceIndicator-test-name"
+          },
+          "value": {
+            "type": "number",
+            "example": 200
+          },
+          "store": {
+            "description": "Store Id",
+            "type": "integer",
+            "example": 1
+          },
+          "amount_of_surveys": {
+            "description": "Store Id",
+            "type": "integer",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-10-20"
+          }
+        }
+      },
+      "ServiceIndicatorArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ServiceIndicator"
+        }
+      },
+      "AnyJSON": {
+        "type": "object",
+        "example": {
+          "metadata_parameter": "metadata_value"
+        }
       }
     }
   }
