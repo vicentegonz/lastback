@@ -1,0 +1,2550 @@
+[
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 1,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 2,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 3,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 4,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 5,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 6,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 7,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-07",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 8,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 9,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 10,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 11,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 12,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 13,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 14,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-08",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 15,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 16,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 17,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 18,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 19,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 20,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 21,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-09",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 22,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 23,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 24,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 25,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 26,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 27,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 28,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-10",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 29,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 30,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 31,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 32,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 33,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 34,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 35,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-11",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 36,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 37,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 38,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 39,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 40,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 41,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 42,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-12",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 43,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 44,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 45,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 46,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 47,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 48,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 49,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-13",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 50,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 51,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 52,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 53,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 54,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 55,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 56,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-14",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 57,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 58,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 59,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 60,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 61,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 62,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 63,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-15",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 64,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 65,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 66,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 67,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 68,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 69,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 70,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-16",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 71,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 72,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 73,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 74,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 75,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 76,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 77,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-17",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 78,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 79,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 80,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 81,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 82,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 83,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 84,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-18",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 85,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 86,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 87,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 88,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 89,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 90,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 91,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-19",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 92,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 93,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 94,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 95,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 96,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 97,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 98,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-20",
+      "store_id": 2088,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 99,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 100,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 101,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 102,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 103,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 104,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 105,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-07",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 106,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 107,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 108,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 109,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 110,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 111,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 112,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-08",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 113,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 114,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 115,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 116,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 117,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 118,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 119,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-09",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 120,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 121,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 122,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 123,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 124,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 125,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 126,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-10",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 127,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 128,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 129,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 130,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 131,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 132,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 133,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-11",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 134,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 135,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 136,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 137,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 138,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 139,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 140,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-12",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 141,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 142,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 143,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 144,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 145,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 146,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 147,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-13",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 148,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 149,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 150,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 151,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 152,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 153,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 154,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-14",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 155,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 156,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 157,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 158,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 159,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 160,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 161,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-15",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 162,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 163,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 164,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 165,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 166,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 167,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 168,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-16",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 169,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 170,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 171,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 172,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 173,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 174,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 175,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-17",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 176,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 177,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 178,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 179,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 180,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 181,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 182,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-18",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 183,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 184,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 185,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 186,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 187,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 188,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 189,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-19",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 190,
+    "fields": {
+      "name": "Service-Indicator-1",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 191,
+    "fields": {
+      "name": "Service-Indicator-2",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 192,
+    "fields": {
+      "name": "Service-Indicator-3",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 193,
+    "fields": {
+      "name": "Service-Indicator-4",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 194,
+    "fields": {
+      "name": "Service-Indicator-5",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 195,
+    "fields": {
+      "name": "Service-Indicator-6",
+      "value": 6.5,
+      "amount_of_surveys": 15,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.ServiceIndicator",
+    "pk": 196,
+    "fields": {
+      "name": "Service-Indicators-Mean",
+      "value": 6.5,
+      "amount_of_surveys": 90,
+      "date": "2021-06-20",
+      "store_id": 2047,
+      "created_at": "2021-06-07T10:30:00.998Z",
+      "updated_at": "2021-06-07T10:30:00.998Z"
+    }
+  }
+]
