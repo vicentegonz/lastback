@@ -440,7 +440,37 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events ocurred on it. It must have YYYY-MM-DD format. If passed, all other date-related parameters are ignored."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events that ocurred since. It must have 'YYYY-MM-DD' format. If passed **without** an `end_date` parameter, it filters all events from `start_date` until the newest registered event. If passed **with** an `end_date` parameter, it filters all events within that range."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events that ocurred up until. It must have 'YYYY-MM-DD' format. If passed **without** a `start_date` parameter, it filters all events from `end_date` until the oldest registered event. If passed **with** a `start_date` parameter, it filters all events within that range."
           }
+
+           
+        
         ],
         "responses": {
           "200": {

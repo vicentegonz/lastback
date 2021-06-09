@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.http import Http404
 from rest_framework import generics, status
@@ -64,6 +64,25 @@ class ListEvents(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         store = self.get_object()
         events = Event.objects.filter(store_id=store.id).order_by("-id")
+        start_date = self.request.query_params.get("start_date")
+        end_date = self.request.query_params.get("end_date")
+        date = self.request.query_params.get("date")
+        if date:
+            base = datetime.strptime(date, "%Y-%m-%d")
+            events = events.filter(created_at__range=[base, base + timedelta(days=1)])
+        elif (not start_date) and end_date:
+            base = datetime.strptime(end_date, "%Y-%m-%d")
+            events = events.filter(created_at__lt=base + timedelta(days=1))
+        elif (not end_date) and start_date:
+            base = datetime.strptime(start_date, "%Y-%m-%d")
+            events = events.filter(created_at__gte=base)
+        elif start_date and end_date:
+            events = events.filter(
+                created_at__range=[
+                    datetime.strptime(start_date, "%Y-%m-%d"),
+                    datetime.strptime(end_date, "%Y-%m-%d") + timedelta(days=1),
+                ]
+            )
         page = self.paginate_queryset(events)
         serializer = EventSerializer(page, many=True)
         return self.get_paginated_response(serializer.data)
