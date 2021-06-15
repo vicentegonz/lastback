@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
 from .models import KPI, Event, ServiceIndicator, Store, Zone
-from .paginations import EventPagination
+from .paginations import EventPagination, KPIPagination
 from .serializers import (
     EventSerializer,
     KPISerializer,
@@ -113,19 +113,44 @@ class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
             return self.create(request)
 
 
-class ListKPI(APIView):
-    @classmethod
-    def get_object(cls, pk):
+class ListKPI(generics.ListAPIView):
+    pagination_class = KPIPagination
+
+    def get_object(self):
         try:
+            pk = self.kwargs["pk"]
             return Store.objects.get(pk=pk)
         except Store.DoesNotExist as store_no_exist:
             raise Http404 from store_no_exist
 
-    def get(self, request, pk, *args, **kwargs):
-        store = self.get_object(pk)
-        kpis = KPI.objects.filter(store=store.id)
-        serializer = KPISerializer(kpis, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    def get(self, request, *args, **kwargs):
+        store = self.get_object()
+        kpis = KPI.objects.filter(store=store.id).order_by("-id")
+        start_date = self.request.query_params.get("start_date", None)
+        end_date = self.request.query_params.get("end_date", None)
+        date = self.request.query_params.get("date", None)
+        if date:
+            base = datetime.strptime(date, "%Y-%m-%d")
+            kpis = kpis.filter(date__range=[base - timedelta(weeks=1), base])
+        elif (not start_date) and end_date:
+            base = datetime.strptime(end_date, "%Y-%m-%d")
+            kpis = kpis.filter(date__lte=base)
+        elif (not end_date) and start_date:
+            base = datetime.strptime(start_date, "%Y-%m-%d")
+            kpis = kpis.filter(date__gte=base)
+        elif start_date and end_date:
+            kpis = kpis.filter(
+                date__range=[
+                    datetime.strptime(start_date, "%Y-%m-%d"),
+                    datetime.strptime(end_date, "%Y-%m-%d"),
+                ]
+            )
+        category = self.request.query_params.get("category")
+        if category:
+            kpis = kpis.filter(category=category)
+        page = self.paginate_queryset(kpis)
+        serializer = KPISerializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
 
 
 class ServiceIndicatorCreate(
