@@ -38,6 +38,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de transacciones",
             "value": base_alimentation_transactions,
+            "units": None,
             "category": "Alimentación Básica",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -47,6 +48,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de ítems vendidos",
             "value": base_alimentation_sold_items,
+            "units": "unidades",
             "category": "Alimentación Básica",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -56,6 +58,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Ventas Totales",
             "value": base_alimentation_sold_items * base_alimentation_price_per_item,
+            "units": "$",
             "category": "Alimentación Básica",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -72,6 +75,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de transacciones",
             "value": sandwich_transactions,
+            "units": None,
             "category": "Sandwich Preparado",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -81,6 +85,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de ítems vendidos",
             "value": sandwich_sold_items,
+            "units": "unidades",
             "category": "Sandwich Preparado",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -90,6 +95,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Ventas Totales",
             "value": sandwich_sold_items * sandwich_price_per_item,
+            "units": "$",
             "category": "Sandwich Preparado",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -106,6 +112,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de transacciones",
             "value": menu_transactions,
+            "units": None,
             "category": "Menú",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -115,6 +122,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Cantidad de ítems vendidos",
             "value": menu_sold_items,
+            "units": "unidades",
             "category": "Menú",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
@@ -124,6 +132,7 @@ def generate_data(base, current_date, transactions, days):
         kpis.append({
             "name": "Ventas Totales",
             "value": menu_sold_items * menu_price_per_item,
+            "units": "$",
             "category": "Menú",
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
