@@ -108,7 +108,7 @@ class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
 
     def put(self, request, **kwargs):
         try:
-            return self.partial_update(request)
+            return self.update(request)
         except KPI.DoesNotExist:
             return self.create(request)
 
@@ -150,7 +150,7 @@ class ServiceIndicatorCreate(
 
     def put(self, request, **kwargs):
         try:
-            return self.partial_update(request)
+            return self.update(request)
         except ServiceIndicator.DoesNotExist:
             return self.create(request)
 
