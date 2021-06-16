@@ -30,6 +30,7 @@ urlpatterns = [
                 path("authentication/", include("backend.authentication.urls")),
                 path("account/", include("backend.accounts.urls")),
                 path("operations/", include("backend.operations.urls")),
+                path("forecast/", include("backend.forecast.urls")),
             ]
         ),
     ),

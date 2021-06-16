@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     "backend.accounts.apps.AccountsConfig",
     "backend.operations.apps.OperationsConfig",
     "backend.authentication.apps.AuthenticationConfig",
+    "backend.forecast.apps.ForecastConfig",
 ]
 
 MIDDLEWARE = [
