@@ -49,4 +49,4 @@ class ServiceIndicator(BaseModel):
 
 class Product(models.Model):
     description = models.CharField(max_length=255)
-    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="products")
+    stores = models.ManyToManyField(Store, related_name="products")

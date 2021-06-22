@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import KPI, Event, ServiceIndicator, Store, Zone
+from .models import KPI, Event, Product, ServiceIndicator, Store, Zone
 
 
 class StoreSerializer(serializers.ModelSerializer):
@@ -35,4 +35,11 @@ class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceIndicator
         fields = ["id", "name", "value", "store", "amount_of_surveys", "date"]
+        read_only_fields = ["id"]
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["id", "description"]
         read_only_fields = ["id"]

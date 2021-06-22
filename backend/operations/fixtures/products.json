@@ -1,0 +1,44 @@
+[
+  {
+    "model": "operations.Product",
+    "pk": 132251,
+    "fields": {
+        "stores": [2088, 2047],
+        "description": "HOT DOG SALSA" 
+    }
+  },
+  {
+    "model": "operations.Product",
+    "pk": 144873,
+    "fields": {
+        "stores": [2088, 2047],
+        "description": "COCA COLA PET 591CC" 
+    }
+  },
+  {
+    "model": "operations.Product",
+    "pk": 145433,
+    "fields": {
+        "stores": [2088],
+        "description": "PORCION PAPAS FRITAS V2" 
+    }
+  },
+  {
+    "model": "operations.Product",
+    "pk": 147181,
+    "fields": {
+        "stores": [2088, 2047],
+        "description": "KENT BELMONT - HL10" 
+    }
+  },
+  {
+    "model": "operations.Product",
+    "pk": 147185,
+    "fields": {
+        "stores": [2088],
+        "description": "KENT BELMONT - HL10" 
+    }
+  }
+  
+
+]

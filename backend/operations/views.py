@@ -7,11 +7,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
-from .models import KPI, Event, ServiceIndicator, Store, Zone
-from .paginations import EventPagination, KPIPagination
+from .models import KPI, Event, Product, ServiceIndicator, Store, Zone
+from .paginations import EventPagination, KPIPagination, ProductPagination
 from .serializers import (
     EventSerializer,
     KPISerializer,
+    ProductSerializer,
     ServiceSerializer,
     StoreSerializer,
     ZoneSerializer,
@@ -193,3 +194,21 @@ class ServiceIndicatorList(APIView):
         services = ServiceIndicator.objects.filter(store=store.id)
         serializer = ServiceSerializer(services, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+class ProductList(generics.ListAPIView):
+    pagination_class = ProductPagination
+
+    def get_object(self):
+        try:
+            pk = self.kwargs["pk"]
+            return Store.objects.get(pk=pk)
+        except Store.DoesNotExist as store_no_exist:
+            raise Http404 from store_no_exist
+
+    def get(self, request, *args, **kwargs):
+        store = self.get_object()
+        products = Product.objects.filter(stores=store)
+        page = self.paginate_queryset(products)
+        serializer = ProductSerializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
