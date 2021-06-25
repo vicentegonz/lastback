@@ -29,6 +29,9 @@
       "name": "Operations"
     },
     {
+      "name": "Forecast"
+    },
+    {
       "name": "Common"
     }
   ],
@@ -889,6 +892,79 @@
         }
       }
     },
+    "/v1/forecast/predictions/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get predictions from Forecast",
+        "tags": ["Forecast"],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "'YYYY-MM-DD' format, must be within a range acceptable by forecast or it will return an error"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the zone information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Prediction"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "502": {
+            "$ref": "#/components/responses/ForecastError"
+          }
+        }
+      }
+    },
     "/health-check/": {
       "get": {
         "summary": "Health check endpoint for the backend, checks for pending migrations",
@@ -944,6 +1020,22 @@
                 "detail": {
                   "type": "string",
                   "enum": ["Not found."]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ForecastError": {
+        "description": "Bad Gateway: Invalid parameters for Forecast",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "enum": ["An error occurred (InvalidInputException) when calling the QueryForecast operation: Invalid forecast query start date provided. The start date must not be before 2021-06-01T00:00:00."]
                 }
               }
             }
@@ -1169,6 +1261,62 @@
             "format": "date",
             "example": "2020-10-20"
           }
+        }
+      },
+      "Prediction": {
+        "type": "object",
+        "properties": {
+          "p10": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 9.55
+                }
+              }
+            }
+          },
+          "p50": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 28.47
+                }
+              }
+            }
+          },
+          "p90": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 44.93
+                }
+              }
+            }
+          }   
         }
       },
       "Product": {
