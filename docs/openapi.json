@@ -621,7 +621,6 @@
               "type": "string"
             }
           }
-
         ],
         "responses": {
           "200": {
@@ -664,6 +663,49 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Page Size (default=5 | max=15)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators marked on that date. It must have YYYY-MM-DD format. If passed, all other date-related parameters are ignored."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators that are marked since. It must have 'YYYY-MM-DD' format. If passed **without** an `end_date` parameter, it filters all kpis marked from `start_date` until the newest marked KPI. If passed **with** an `end_date` parameter, it filters all KPIs within that range."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators that are marked until that date. It must have 'YYYY-MM-DD' format. If passed **without** a `start_date` parameter, it filters all KPIs marked until `end_date`. If passed **with** a `start_date` parameter, it filters all KPIs within that range."
           }
         ],
         "responses": {
@@ -682,6 +724,9 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
           }
         }
       }
@@ -1240,26 +1285,74 @@
             "example": 1,
             "readOnly": true
           },
-          "name": {
-            "type": "string",
-            "example": "Example Service Indicator"
-          },
-          "value": {
-            "type": "number",
-            "example": 200
-          },
           "store": {
             "type": "integer",
             "example": 1
-          },
-          "amount_of_surveys": {
-            "type": "integer",
-            "example": 47
           },
           "date": {
             "type": "string",
             "format": "date",
             "example": "2020-10-20"
+          },
+          "amount_of_surveys": {
+            "type": "integer",
+            "example": 47
+          },
+          "nps": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_nps": {
+            "type": "integer",
+            "example": 2
+          },
+          "experience": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_experience": {
+            "type": "integer",
+            "example": 2
+          },
+          "kindness": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_kindness": {
+            "type": "integer",
+            "example": 2
+          },
+          "waiting_time": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_waiting_time": {
+            "type": "integer",
+            "example": 2
+          },
+          "speed": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_speed": {
+            "type": "integer",
+            "example": 2
+          },
+          "quality": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_quality": {
+            "type": "integer",
+            "example": 2
+          },
+          "bathroom": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_bathroom": {
+            "type": "integer",
+            "example": 2
           }
         }
       },

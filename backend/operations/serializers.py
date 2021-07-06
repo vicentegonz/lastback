@@ -34,7 +34,26 @@ class KPISerializer(serializers.ModelSerializer):
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceIndicator
-        fields = ["id", "name", "value", "store", "amount_of_surveys", "date"]
+        fields = [
+            "id",
+            "store",
+            "date",
+            "amount_of_surveys",
+            "nps",
+            "amount_nps",
+            "experience",
+            "amount_experience",
+            "kindness",
+            "amount_kindness",
+            "waiting_time",
+            "amount_waiting_time",
+            "speed",
+            "amount_speed",
+            "quality",
+            "amount_quality",
+            "bathroom",
+            "amount_bathroom",
+        ]
         read_only_fields = ["id"]
 
 

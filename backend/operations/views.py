@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework_api_key.permissions import HasAPIKey
 
 from .models import KPI, Event, Product, ServiceIndicator, Store, Zone
-from .paginations import EventPagination, KPIPagination, ProductPagination
+from .paginations import EventPagination, KPIServicePagination, ProductPagination
 from .serializers import (
     EventSerializer,
     KPISerializer,
@@ -115,7 +115,7 @@ class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
 
 
 class ListKPI(generics.ListAPIView):
-    pagination_class = KPIPagination
+    pagination_class = KPIServicePagination
 
     def get_object(self):
         try:
@@ -168,7 +168,6 @@ class ServiceIndicatorCreate(
             date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
         return ServiceIndicator.objects.get(
             store=self.request.data.get("store"),
-            name=self.request.data.get("name"),
             date__day=date.day,
             date__month=date.month,
             date__year=date.year,
@@ -181,19 +180,41 @@ class ServiceIndicatorCreate(
             return self.create(request)
 
 
-class ServiceIndicatorList(APIView):
-    @classmethod
-    def get_object(cls, pk):
+class ServiceIndicatorList(generics.ListAPIView):
+    pagination_class = KPIServicePagination
+
+    def get_object(self):
         try:
+            pk = self.kwargs["pk"]
             return Store.objects.get(pk=pk)
         except Store.DoesNotExist as store_no_exist:
             raise Http404 from store_no_exist
 
-    def get(self, request, pk, *args, **kwargs):
-        store = self.get_object(pk)
-        services = ServiceIndicator.objects.filter(store=store.id)
-        serializer = ServiceSerializer(services, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    def get(self, request, *args, **kwargs):
+        store = self.get_object()
+        services = ServiceIndicator.objects.filter(store=store.id).order_by("-id")
+        start_date = self.request.query_params.get("start_date", None)
+        end_date = self.request.query_params.get("end_date", None)
+        date = self.request.query_params.get("date", None)
+        if date:
+            base = datetime.strptime(date, "%Y-%m-%d")
+            services = services.filter(date__range=[base - timedelta(weeks=1), base])
+        elif (not start_date) and end_date:
+            base = datetime.strptime(end_date, "%Y-%m-%d")
+            services = services.filter(date__lte=base)
+        elif (not end_date) and start_date:
+            base = datetime.strptime(start_date, "%Y-%m-%d")
+            services = services.filter(date__gte=base)
+        elif start_date and end_date:
+            services = services.filter(
+                date__range=[
+                    datetime.strptime(start_date, "%Y-%m-%d"),
+                    datetime.strptime(end_date, "%Y-%m-%d"),
+                ]
+            )
+        page = self.paginate_queryset(services)
+        serializer = ServiceSerializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
 
 
 class ProductList(generics.ListAPIView):

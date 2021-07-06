@@ -41,10 +41,22 @@ class KPI(BaseModel):
 
 class ServiceIndicator(BaseModel):
     store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="services")
-    name = models.CharField(max_length=255)
-    value = models.FloatField()
-    amount_of_surveys = models.IntegerField()
     date = models.DateField("date", default=date.today)
+    amount_of_surveys = models.IntegerField()
+    nps = models.IntegerField()
+    amount_nps = models.IntegerField()
+    experience = models.IntegerField()
+    amount_experience = models.IntegerField()
+    kindness = models.IntegerField()
+    amount_kindness = models.IntegerField()
+    waiting_time = models.IntegerField()
+    amount_waiting_time = models.IntegerField()
+    speed = models.IntegerField()
+    amount_speed = models.IntegerField()
+    quality = models.IntegerField()
+    amount_quality = models.IntegerField()
+    bathroom = models.IntegerField()
+    amount_bathroom = models.IntegerField()
 
 
 class Product(models.Model):
