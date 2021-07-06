@@ -100,7 +100,6 @@ class KPICreate(CreateModelMixin, UpdateModelMixin, generics.GenericAPIView):
             date = datetime.strptime(self.request.data.get("date"), "%Y-%m-%d")
         return KPI.objects.get(
             store=self.request.data.get("store"),
-            name=self.request.data.get("name"),
             category=self.request.data.get("category"),
             date__day=date.day,
             date__month=date.month,

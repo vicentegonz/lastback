@@ -27,7 +27,16 @@ class EventSerializer(serializers.ModelSerializer):
 class KPISerializer(serializers.ModelSerializer):
     class Meta:
         model = KPI
-        fields = ["id", "name", "value", "units", "store", "category", "date"]
+        fields = [
+            "id",
+            "store",
+            "date",
+            "category",
+            "net_sale",
+            "contribution",
+            "transactions",
+            "gross_sale",
+        ]
         read_only_fields = ["id"]
 
 

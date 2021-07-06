@@ -32,11 +32,12 @@ class Event(BaseModel):
 
 class KPI(BaseModel):
     store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name="KPIs")
-    name = models.CharField(max_length=255)
-    value = models.FloatField()
-    units = models.CharField(max_length=255, null=True)
-    category = models.CharField(max_length=255)
     date = models.DateField("date", default=date.today)
+    category = models.CharField(max_length=255)
+    net_sale = models.IntegerField()
+    contribution = models.IntegerField()
+    transactions = models.IntegerField()
+    gross_sale = models.IntegerField()
 
 
 class ServiceIndicator(BaseModel):

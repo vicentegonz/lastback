@@ -1250,30 +1250,34 @@
             "example": 1,
             "readOnly": true
           },
-          "name": {
-            "type": "string",
-            "example": "Example KPI"
-          },
-          "value": {
-            "type": "number",
-            "example": 200
-          },
-          "units": {
-            "type": "string",
-            "example": "$"
-          },
           "store": {
             "type": "integer",
             "example": 1
-          },
-          "category": {
-            "type": "string",
-            "example": "Example category"
           },
           "date": {
             "type": "string",
             "format": "date",
             "example": "2020-10-20"
+          },
+          "category": {
+            "type": "string",
+            "example": "Example category"
+          },
+          "net_sale": {
+            "type": "number",
+            "example": 759671
+          },
+          "contribution": {
+            "type": "number",
+            "example": 759672
+          },
+          "transactions": {
+            "type": "number",
+            "example": 200
+          },
+          "gross_sale": {
+            "type": "number",
+            "example": 759672
           }
         }
       },
