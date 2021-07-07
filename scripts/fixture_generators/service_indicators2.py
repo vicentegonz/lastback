@@ -83,7 +83,7 @@ if __name__ == "__main__":
         "updated_at": "2021-06-07T10:30:00.998Z",
     }
 
-    INITIAL_DATE = datetime.strptime("2021-07-05", "%Y-%m-%d")
+    INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
 
 
     MEAN_VALUES = [7,1,2,14,2,14,2,14,2,10,1,10,1,10,1]

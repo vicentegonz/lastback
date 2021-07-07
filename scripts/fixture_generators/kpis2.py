@@ -125,7 +125,7 @@ if __name__ == "__main__":
         "updated_at": "2021-06-07T10:30:00.998Z",
     }
 
-    INITIAL_DATE = datetime.strptime("2021-07-05", "%Y-%m-%d")
+    INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
 
     KPI_CATEGORIES = [
         "Total", "Cigarrillos", "Comida", "Cooler", "Retail", "Cafeteria", 
@@ -136,14 +136,14 @@ if __name__ == "__main__":
     FIRST_KPIS = generate_indicators(
         FIRST_STORE_BASE,
         INITIAL_DATE,
-        40,
+        100,
         KPI_CATEGORIES
     )
 
     SECOND_KPIS = generate_indicators(
         SECOND_STORE_BASE,
         INITIAL_DATE,
-        40,
+        100,
         KPI_CATEGORIES
     )
 
