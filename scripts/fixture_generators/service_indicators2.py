@@ -83,12 +83,12 @@ if __name__ == "__main__":
         "updated_at": "2021-06-07T10:30:00.998Z",
     }
 
-    INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
+    INITIAL_DATE = datetime.strptime("2021-07-05", "%Y-%m-%d")
 
 
     MEAN_VALUES = [7,1,2,14,2,14,2,14,2,10,1,10,1,10,1]
     DESV_VALUES= [2,1,2,10,1,10,2,10,2,6,1,6,1,7,1]
-    MIN_VALUES= [1,-3,1,1,1,1,0,1,1,1,0,1,0,1,0]
+    MIN_VALUES= [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
     FIRST_SERVICE_INDICATORS = generate_indicators(
         FIRST_STORE_BASE,

@@ -61,15 +61,15 @@ def generate_indicator(base, current_date, days, categories):
                 contribution= random.randint(-100000,200000)
                 transactions =  random.randint(1,200)
             elif category == "Baños":
-                gross_sale = random.randint(0,20000)
+                gross_sale = random.randint(1,20000)
                 net_sale = random.randint(gross_sale-1000,gross_sale)
-                contribution= random.randint(0,20000)
+                contribution= random.randint(1,20000)
                 transactions =  random.randint(1,50)
             elif category == "Dif_varias":
                 gross_sale = random.randint(1000,50000)
                 net_sale = random.randint(gross_sale-500,gross_sale)
-                contribution= random.randint(0,10000)
-                transactions =  random.randint(0,20)
+                contribution= random.randint(1,10000)
+                transactions =  random.randint(1,20)
             kpis.append({
             "category": category,
             "net_sale": net_sale,
@@ -125,7 +125,7 @@ if __name__ == "__main__":
         "updated_at": "2021-06-07T10:30:00.998Z",
     }
 
-    INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
+    INITIAL_DATE = datetime.strptime("2021-07-05", "%Y-%m-%d")
 
     KPI_CATEGORIES = [
         "Total", "Cigarrillos", "Comida", "Cooler", "Retail", "Cafeteria", 
@@ -136,14 +136,14 @@ if __name__ == "__main__":
     FIRST_KPIS = generate_indicators(
         FIRST_STORE_BASE,
         INITIAL_DATE,
-        20,
+        40,
         KPI_CATEGORIES
     )
 
     SECOND_KPIS = generate_indicators(
         SECOND_STORE_BASE,
         INITIAL_DATE,
-        20,
+        40,
         KPI_CATEGORIES
     )
 
