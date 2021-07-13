@@ -1413,7 +1413,7 @@
                 }
               }
             }
-          }   
+          }
         }
       },
       "Product": {
@@ -1427,6 +1427,10 @@
           "description": {
             "type": "string",
             "example": "Example Product Description"
+          },
+          "supplier": {
+            "type": "string",
+            "example": "Coca Cola company"
           }
         }
       }
