@@ -117,12 +117,14 @@ if __name__ == "__main__":
         "store_id": 2088,
         "created_at": "2021-06-07T10:30:00.998Z",
         "updated_at": "2021-06-07T10:30:00.998Z",
+        "poa": random.randint(400000,1500000)
     }
 
     SECOND_STORE_BASE = {
         "store_id": 2047,
         "created_at": "2021-06-07T10:30:00.998Z",
         "updated_at": "2021-06-07T10:30:00.998Z",
+        "poa": random.randint(500000,1400000)
     }
 
     INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")

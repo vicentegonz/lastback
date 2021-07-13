@@ -38,6 +38,7 @@ class KPI(BaseModel):
     contribution = models.IntegerField()
     transactions = models.IntegerField()
     gross_sale = models.IntegerField()
+    poa = models.IntegerField(null=True)
 
 
 class ServiceIndicator(BaseModel):
@@ -63,3 +64,4 @@ class ServiceIndicator(BaseModel):
 class Product(models.Model):
     description = models.CharField(max_length=255)
     stores = models.ManyToManyField(Store, related_name="products")
+    supplier = models.CharField(max_length=255)

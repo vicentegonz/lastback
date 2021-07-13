@@ -4,7 +4,7 @@
     "pk": 132251,
     "fields": {
         "stores": [2088, 2047],
-        "description": "HOT DOG SALSA" 
+        "description": "HOT DOG SALSA"
     }
   },
   {
@@ -12,7 +12,8 @@
     "pk": 144873,
     "fields": {
         "stores": [2088, 2047],
-        "description": "COCA COLA PET 591CC" 
+        "description": "COCA COLA PET 591CC", 
+        "supplier": "ANDINA"
     }
   },
   {
@@ -28,7 +29,8 @@
     "pk": 147181,
     "fields": {
         "stores": [2088, 2047],
-        "description": "KENT BELMONT - HL10" 
+        "description": "KENT BELMONT - HL10",
+        "supplier": "BAT CHILE" 
     }
   },
   {
@@ -36,7 +38,8 @@
     "pk": 147185,
     "fields": {
         "stores": [2088],
-        "description": "KENT BELMONT - HL10" 
+        "description": "KENT BELMONT - HL20",
+        "supplier": "BAT CHILE" 
     }
   }
   
