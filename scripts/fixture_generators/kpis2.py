@@ -23,7 +23,7 @@ def generate_indicator(base, current_date, days, categories):
         contribucion = 0
         transacciones = 0
         venta_bruta = 0
-        
+
         for category in categories[1:]:
             if category.strip() == "Cigarrillos":
                 gross_sale = random.randint(1000000,3000000)
@@ -92,8 +92,8 @@ def generate_indicator(base, current_date, days, categories):
         "date": current_date.strftime("%Y-%m-%d"),
         **copy.deepcopy(base),
         })
-        
-            
+
+
 
         current_date += timedelta(days=1)
 
@@ -116,21 +116,19 @@ if __name__ == "__main__":
     FIRST_STORE_BASE = {
         "store_id": 2088,
         "created_at": "2021-06-07T10:30:00.998Z",
-        "updated_at": "2021-06-07T10:30:00.998Z",
-        "poa": random.randint(400000,1500000)
+        "updated_at": "2021-06-07T10:30:00.998Z"
     }
 
     SECOND_STORE_BASE = {
         "store_id": 2047,
         "created_at": "2021-06-07T10:30:00.998Z",
-        "updated_at": "2021-06-07T10:30:00.998Z",
-        "poa": random.randint(500000,1400000)
+        "updated_at": "2021-06-07T10:30:00.998Z"
     }
 
     INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
 
     KPI_CATEGORIES = [
-        "Total", "Cigarrillos", "Comida", "Cooler", "Retail", "Cafeteria", 
+        "Total", "Cigarrillos", "Comida", "Cooler", "Retail", "Cafeteria",
         "Serv_Comis", "Servicios", "Baños", "Dif_varias"
     ]
 
