@@ -9,7 +9,11 @@
 !backend/settings.py
 !backend/urls.py
 !backend/wsgi.py
-!backend/example
+!backend/accounts
+!backend/authentication
+!backend/common
+!backend/forecast
+!backend/operations
 
 # Include: OpenAPI documentation files
 !docs/openapi.json
@@ -21,3 +25,5 @@
 
 # Include: misc stuff
 !entrypoint.sh
+!scripts/production-release.sh
+!scripts/staging-release.sh

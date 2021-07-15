@@ -1,3 +1,3 @@
 [flake8]
-exclude = *.egg-info, .git, .venv, __pycache__,
+exclude = *.egg-info, .git, .venv, __pycache__,backend/**/migrations/*.py
 max-line-length = 88

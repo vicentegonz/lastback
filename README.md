@@ -11,7 +11,14 @@ The requirements are simple! You just need:
 
 ## Starting the server
 
-To start the server, first build the Docker image:
+To start the server, first create a `.env` file with all the environmental variables:
+
+```sh
+cp .env.example .env
+nano .env  # Or use your favorite text editor
+```
+
+Then, build the Docker image:
 
 ```sh
 docker-compose build
@@ -25,6 +32,20 @@ docker-compose up
 
 The API can be reached at `http://localhost:8000/`.
 
+Rememeber to migrate the database:
+
+```sh
+make migrate!
+
+# Or `docker-compose run web python manage.py migrate`
+```
+
+And to run the seeds:
+
+```sh
+make seeds!
+```
+
 ## Running commands inside the container
 
 From now on, every command that should be run on the console will be run inside the container. This means that, for example, the command `python manage.py shell` will now be run through Docker using `docker-compose run web python manage.py shell`. The gist is that any command `[COMMAND]` will now be run as:
@@ -34,6 +55,24 @@ docker-compose run <service> [COMMAND]
 ```
 
 Where `<service>` corresponds to the name of the service in which you want to run the command (the services get defined inside the `docker-compose.yml` file).
+
+## Environmental variables
+
+There are some environmental variables that need to be added to the repository:
+
+- `DJANGO_SECRET_KEY`: **Required on production**. This random string variable is used by Django as a seed for all of its random stuff, so **it is essential to be random, unique and unknown**.
+- `DJANGO_ENV`: **Required on production**. This string (should be in `["production", "development"]`) dictates the environment in which Django will run.
+- `DEBUG`: This overwrites the `DJANGO_ENV` regarding the debug mode. If `DJANGO_ENV` is set to something other than `production`, the app will run by default on debug mode. If `DJANGO_ENV` is on `production`, however, you can still run the app on debug mode, by setting the `DEBUG` variable to `True`.
+- `GOOGLE_CLIENT_ID`: **Required on production**. This is the client ID of the Google project that allows logins of the users through Google.
+- `JWT_LIFETIME`: The duration of the JWT, in minutes. Defaults to `60`.
+- `JWT_REFRESH_LIFETIME`: The duration of the refresh token, in hours. Defaults to `24`.
+- `ALLOWED_ORIGINS`: A list of allowed tokens for CORS, separated by spaces (for instance, `https://production.com https://development.com http://localhost:8000`). Note that the application will always allow `http://localhost:3000`.
+- `DATABASE_URL`: **Required on production**. The URL for the database. This variable overwrites the following variables:
+  - `DATABASE_NAME`: **Required on production** (unless `DATABASE_URL` is set). Defines the name of the database to access. Defaults to `postgres`.
+  - `DATABASE_USER`: **Required on production** (unless `DATABASE_URL` is set). Defines the username of the database engine to use. Defaults to `postgres`.
+  - `DATABASE_PASSWORD`: **Required on production** (unless `DATABASE_URL` is set). Defines the password to use with the database user.
+  - `DATABASE_HOST`: **Required on production** (unless `DATABASE_URL` is set). Defines the machine hosting the database engine. Defaults to `default_db`.
+  - `DATABASE_PORT`: **Required on production** (unless `DATABASE_URL` is set). Defines the port of the host machine to query for the database. Defaults to `5432`.
 
 ## Adding new apps
 
@@ -48,6 +87,24 @@ You will notice that, inside the `backend` folder, there are two sub-folders. Ea
 ## Interactive documentation
 
 This application comes loaded with interactive documentation. You will find a file named `openapi.json` inside the `docs` file. This file corresponds to the [OpenAPI](https://swagger.io/specification/) spec of the API, and will get rendered by [SwaggerUI](https://swagger.io/tools/swagger-ui/) at `/docs` and by [ReDoc](https://redoc.ly/redoc) at `/docs/redoc` (enter through the browser). Also, you can get the JSON spec at `/docs/openapi.json` (this will return the spec located at `docs/openapi.json`).
+
+## API Keys
+
+There is a fixture that creates an API key for the staging environment _automagically_. This API key is named `client`, and its value is `EZYGDrc6.kibJkIUjJOCuUj6lNlurTMTuxR1ug0x9`. **This should not work on the production environment**. To create an API key on production, enter to the Django shell using `python manage.py shell` inside the container and execute the following commands:
+
+```py
+from rest_framework_api_key.models import APIKey
+
+APIKey.objects.create_key(name="api_key_name")
+```
+
+This should print something like:
+
+```sh
+(<APIKey: api_key_name>, 'EZYGDrc6.kibJkIUjJOCuUj6lNlurTMTuxR1ug0x9')
+```
+
+**Save the string on the right side of this tuple**. This is the API key and **once exited, it can never be obtained back**.
 
 ## Running the linters
 

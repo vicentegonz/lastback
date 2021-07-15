@@ -8,19 +8,705 @@
     {
       "url": "http://localhost:8000",
       "description": "Development server"
+    },
+    {
+      "url": "https://api.staging-arcopri.ml",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.arcopri.ml",
+      "description": "Production server"
     }
   ],
   "tags":[
     {
-      "name": "Example"
+      "name": "Authentication"
+    },
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Operations"
+    },
+    {
+      "name": "Forecast"
+    },
+    {
+      "name": "Common"
     }
   ],
   "paths": {
-    "/examples/nice": {
+    "/v1/authentication/google/": {
+      "post": {
+        "summary": "Endpoint to get the JWT and refresh tokens",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/idToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authorizationTokens"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_token": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "The token is invalid or expired. Please login again.",
+                          "This field is required."
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/authentication/token/validate/": {
+      "post": {
+        "summary": "Endpoint to validate an access token",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "format": "jwt",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiY29sZF9zdHVmZiI6IuKYgyIsImV4cCI6MTIzNTY3LCJqdGkiOiJjNzE4ZTVkNjgzZWQ0NTQyYTU0NWJkM2VmMGI0ZGQ0ZSJ9.ekxRxgb9OKmHkfy-zs1Ro_xs1eMLXiR17dIDBVxeT-w"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_token": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": ["This field is required."]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "enum": ["Token is invalid or expired"]
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": ["token_not_valid"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/authentication/token/refresh/": {
+      "post": {
+        "summary": "Endpoint to refresh the JWT and refresh tokens",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/refreshToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authorizationTokens"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id_token": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": ["This field is required."]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "enum": [
+                        "Token is invalid or expired",
+                        "Token is blacklisted"
+                      ]
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": ["token_not_valid"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/": {
       "get": {
-        "summary": "Example endpoint for GET requests",
-        "tags": [
-          "Example"
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get all the information of one account",
+        "tags": ["Accounts"],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the user information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/account/devices/": {
+      "put": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to create or update an Expo device",
+        "tags": ["Accounts"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Device"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK (updated if a device with the same OS ID already exists)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Device"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Device"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "expo_push_token": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": ["device with this expo push token already exists."]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a list of zones",
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "An array of stores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a store by ID",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the store information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Store"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/events/": {
+      "post": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to create events on every store",
+        "tags": ["Operations"],
+        "responses": {
+          "201": {
+            "description": "An array of the created events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/events": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get the latest events of a store. By default, it returns (if existant) the store's last five events.",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Page Size (default=5 | max=15)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events ocurred on it. It must have YYYY-MM-DD format. If passed, all other date-related parameters are ignored."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events that ocurred since. It must have 'YYYY-MM-DD' format. If passed **without** an `end_date` parameter, it filters all events from `start_date` until the newest registered event. If passed **with** an `end_date` parameter, it filters all events within that range."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering events that ocurred up until. It must have 'YYYY-MM-DD' format. If passed **without** a `start_date` parameter, it filters all events from `end_date` until the oldest registered event. If passed **with** a `start_date` parameter, it filters all events within that range."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of the latest store events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/products": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get the products of a store. By default, it returns (if existant) the store's last five products.",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Page Size (default=5 | max=15)",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of the stores products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/kpis": {
+      "get": {
+        "summary": "Endpoint to get the KPIs of a store",
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Page Size (default=5 | max=15)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering KPIs marked on that date. It must have YYYY-MM-DD format. If passed, all other date-related parameters are ignored."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering KPIs that are marked since. It must have 'YYYY-MM-DD' format. If passed **without** an `end_date` parameter, it filters all kpis marked from `start_date` until the newest marked KPI. If passed **with** an `end_date` parameter, it filters all KPIs within that range."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering KPIs that are marked until that date. It must have 'YYYY-MM-DD' format. If passed **without** a `start_date` parameter, it filters all KPIs marked until `end_date`. If passed **with** a `start_date` parameter, it filters all KPIs within that range."
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "A specific category for filtering KPIs.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of the store KPIs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KPI"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
+        }
+      }
+    },
+    "/v1/operations/stores/{id}/service-indicators": {
+      "get": {
+        "summary": "Endpoint to get the Service Indicators of a store",
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Store ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Page Size (default=5 | max=15)",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators marked on that date. It must have YYYY-MM-DD format. If passed, all other date-related parameters are ignored."
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators that are marked since. It must have 'YYYY-MM-DD' format. If passed **without** an `end_date` parameter, it filters all kpis marked from `start_date` until the newest marked KPI. If passed **with** an `end_date` parameter, it filters all KPIs within that range."
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "A specific date for filtering Service Indicators that are marked until that date. It must have 'YYYY-MM-DD' format. If passed **without** a `start_date` parameter, it filters all KPIs marked until `end_date`. If passed **with** a `start_date` parameter, it filters all KPIs within that range."
+          }
         ],
         "responses": {
           "200": {
@@ -28,18 +714,312 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "enum": [
-                        "nice"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceIndicator"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
+        }
+      }
+    },
+    "/v1/operations/kpis/": {
+      "put": {
+        "summary": "Endpoint to create a KPI",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "ApiKeyAuth" : []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KPI"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KPI"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "StoreDoesNotExist": {
+                    "value": {
+                      "store": [
+                        "Invalid pk \"1\" - object does not exist."
+                      ]
+                    }
+                  },
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  },
+                  "InvalidField": {
+                    "value": {
+                      "value": [
+                        "A valid number is required"
                       ]
                     }
                   }
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/service-indicators/": {
+      "put": {
+        "summary": "Endpoint to create/update Stores' service indicator",
+        "tags": ["Operations"],
+        "security": [
+          {
+            "ApiKeyAuth" : []
+          }
+        ],
+        "requestBody": {
+          "description": "Service Indicator Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+            }
+        }
+      },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK, Service Indicator has been successfully updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceIndicator"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "StoreDoesNotExist": {
+                    "value": {
+                      "store": [
+                        "Invalid pk \"1\" - object does not exist."
+                      ]
+                    }
+                  },
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  },
+                  "InvalidField": {
+                    "value": {
+                      "value": [
+                        "A valid number is required"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/operations/zones/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a list of zones",
+        "tags": ["Operations"],
+        "responses": {
+          "200": {
+            "description": "A JSON array of zones names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zone"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/operations/zones/{id}": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get a zone by ID",
+        "tags": ["Operations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Zone ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the zone information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zone"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/v1/forecast/predictions/": {
+      "get": {
+        "security": [
+          {
+            "JSONWebTokenAuth": []
+          }
+        ],
+        "summary": "Endpoint to get predictions from Forecast",
+        "tags": ["Forecast"],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "'YYYY-MM-DD' format, must be within a range acceptable by forecast or it will return an error"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object with the zone information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Prediction"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "RequiredFieldMissing": {
+                    "value": {
+                      "parameter": [
+                        "This field is required."
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "502": {
+            "$ref": "#/components/responses/ForecastError"
+          }
+        }
+      }
+    },
+    "/health-check/": {
+      "get": {
+        "summary": "Health check endpoint for the backend, checks for pending migrations",
+        "tags": ["Common"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "503": {
+            "description": "Service Unavailable"
           }
         }
       }
@@ -51,6 +1031,408 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string",
+                  "enum": ["Authentication credentials were not provided."]
+                }
+              }
+            }
+          }
+        }
+      },
+      "StoreNotFound": {
+        "description": "Store not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string",
+                  "enum": ["Not found."]
+                }
+              }
+            }
+          }
+        }
+      },
+      "ForecastError": {
+        "description": "Bad Gateway: Invalid parameters for Forecast",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "enum": ["An error occurred (InvalidInputException) when calling the QueryForecast operation: Invalid forecast query start date provided. The start date must not be before 2021-06-01T00:00:00."]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "idToken": {
+        "type": "object",
+        "properties": {
+          "id_token": {
+            "type": "string",
+            "writeOnly": true,
+            "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlOTU1NmFkNDY4MDMxMmMxMTdhZmFlZjI5MjBmNWY5OWE0Yzc5ZmQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIxMDEzMzUyMjQ2MTgwLWFqdXIxcTc0bXQ0MHNnNnI4MWZ1ZjhpdmllamwxdmpqLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiMTAxMzM1MjI0NjE4MC1hanVyMXE3NG10NDBzZzZyODFmdWY4aXZpZWpsMXZqai5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMzc2OTcyMDM3NTI2MDkxMzk4NCIsImhkIjoidWMuY2wiLCJlbWFpbCI6Imp5aG9ybWF6YWJhbEB1Yy5jbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJub25jZSI6IjAwMDM3NDUyNWRhZmI5OWZjMzQwYTFmM2VjYzU5MDExMzhjYzBkYWM4MDY2NjlhOGZjYzMwOTkwM2I1ZjEzOWIiLCJuYW1lIjoiSmVzc2ljYSBIb3JtYXphYmFsIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdnaE52cWVJU2t0MGp3Ums0RTF1QXR5U2E4Z0dCRGRmVnJXckRMZV82QT1zOTYtYyIsImdpdmVuX25hbWUiOiJKZXNzaWNhIiwiZmFtaWx5X25hbWUiOiJIb3JtYXphYmFsIiwibG9jYWxlIjoiZXMiLCJpYXQiOjE2MTk0NjA1NzYsImV4cCI6MTYxOTQ2NDE3NiwianRpIjoiODcyYmM4ZmFhNWVlYWVjM2U4NmNiNjEyMDYyNjdjOGYxYmJiMjdmZSJ9.FsgLPKlsTyqeoY6vdzQob-T8d5U8nIf85aDwaiHvomfs_gL-Qg5ME7vUGqiEF1YRzccmiifCC-ifjhtxslOmh9WnG5AXWH-3aAcPkeyW1YGtO3aamGNxj9Kf_ty8iU3TSKr2MERs2f5Y65kSIhgNCN4eg9sY2O5K9QglUjVbor-TtN3b2wnQZJIUexIB3nSLhsN-s6yugLIRZJN1Mtt63SFS8Yx68mPF97Bs6ysmD2a0kDC0Q7fWafeZnCTicd4OoyZersRtGI9nXL115MHOxCucHsMNL7WYwb35NOgvSkZXxL9FVe-GBqiiTOcfr0jhwZAzWe5Rfb4XcSQO7YHGQQ"
+          }
+        }
+      },
+      "accessToken": {
+        "type": "object",
+        "properties": {
+          "access": {
+            "type": "string",
+            "format": "jwt",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiY29sZF9zdHVmZiI6IuKYgyIsImV4cCI6MTIzNTY3LCJqdGkiOiJjNzE4ZTVkNjgzZWQ0NTQyYTU0NWJkM2VmMGI0ZGQ0ZSJ9.ekxRxgb9OKmHkfy-zs1Ro_xs1eMLXiR17dIDBVxeT-w"
+          }
+        }
+      },
+      "refreshToken": {
+        "type": "object",
+        "properties": {
+          "refresh": {
+            "type": "string",
+            "format": "jwt",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3BrIjoxLCJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImNvbGRfc3R1ZmYiOiLimIMiLCJleHAiOjIzNDU2NywianRpIjoiZGUxMmY0ZTY3MDY4NDI3ODg5ZjE1YWMyNzcwZGEwNTEifQ.aEoAYkSJjoWH1boshQAaTkf8G3yn0kapko6HFRt7Rh4"
+          }
+        }
+      },
+      "authorizationTokens": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/accessToken"
+          },
+          {
+            "$ref": "#/components/schemas/refreshToken"
+          }
+        ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "dlleal@uc.cl"
+          },
+          "family_name": {
+            "type": "string",
+            "example": "Leal Bitrán"
+          },
+          "given_name": {
+            "type": "string",
+            "example": "Dani"
+          },
+          "picture": {
+            "type": "string",
+            "example": "https://lh3.googleusercontent.com/a/AATXAJzZRcXznM1OqOz4L6M_X-Ubg20oTj6KAcQAI9J6=s96-c"
+          },
+          "role": {
+            "type": "integer",
+            "example": 1
+          },
+          "stores": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [1, 3]
+          }
+        }
+      },
+      "Device": {
+        "type": "object",
+        "properties": {
+          "android_id": {
+            "type": "string",
+            "description": "uses Expo’s [`Application.androidId`](https://docs.expo.io/versions/latest/sdk/application/#applicationandroidid)",
+            "format": "hexadecimal",
+            "nullable": true,
+            "example": "dd96dec43fb81c97"
+          },
+          "ios_id": {
+            "type": "string",
+            "description": "uses Expo’s [`Application.getIosIdForVendorAsync()`](https://docs.expo.io/versions/latest/sdk/application/#applicationgetiosidforvendorasync)",
+            "format": "hexadecimal",
+            "nullable": true,
+            "example": "68753A44-4D6F-1226-9C60-0050E4C00067"
+          },
+          "expo_push_token": {
+            "type": "string",
+            "description": "uses Expo’s [`Notifications.getExpoPushTokenAsync()`](https://docs.expo.io/versions/latest/sdk/notifications/#getexpopushtokenasyncoptions-expotokenoptions-expopushtoken)",
+            "nullable": true,
+            "example": "ExponentPushToken[0w_gV4MVHgDrwDyOl-s0A7]"
+          }
+        }
+      },
+      "Zone": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "example": "Sample zone"
+          }
+        }
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "example": "Sample store"
+          },
+          "zone": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
+          "store": {
+            "type": "integer",
+            "example": 1
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-10-20T10:30:00.998000Z"
+          },
+          "data": {
+            "type": "object",
+            "example": {
+              "event": "This is an event example content"
+            }
+          }
+        }
+      },
+      "KPI": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "store": {
+            "type": "integer",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-10-20"
+          },
+          "category": {
+            "type": "string",
+            "example": "Example category"
+          },
+          "net_sale": {
+            "type": "number",
+            "example": 759671
+          },
+          "contribution": {
+            "type": "number",
+            "example": 759672
+          },
+          "transactions": {
+            "type": "number",
+            "example": 200
+          },
+          "gross_sale": {
+            "type": "number",
+            "example": 759672
+          }
+        }
+      },
+      "ServiceIndicator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "store": {
+            "type": "integer",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2020-10-20"
+          },
+          "amount_of_surveys": {
+            "type": "integer",
+            "example": 47
+          },
+          "nps": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_nps": {
+            "type": "integer",
+            "example": 2
+          },
+          "experience": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_experience": {
+            "type": "integer",
+            "example": 2
+          },
+          "kindness": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_kindness": {
+            "type": "integer",
+            "example": 2
+          },
+          "waiting_time": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_waiting_time": {
+            "type": "integer",
+            "example": 2
+          },
+          "speed": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_speed": {
+            "type": "integer",
+            "example": 2
+          },
+          "quality": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_quality": {
+            "type": "integer",
+            "example": 2
+          },
+          "bathroom": {
+            "type": "integer",
+            "example": 2
+          },
+          "amount_bathroom": {
+            "type": "integer",
+            "example": 2
+          }
+        }
+      },
+      "Prediction": {
+        "type": "object",
+        "properties": {
+          "p10": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 9.55
+                }
+              }
+            }
+          },
+          "p50": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 28.47
+                }
+              }
+            }
+          },
+          "p90": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2021-06-01T00:00:00"
+                },
+                "Value": {
+                  "type": "float",
+                  "example": 44.93
+                }
+              }
+            }
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "example": "Example Product Description"
+          },
+          "supplier": {
+            "type": "string",
+            "example": "Coca Cola company"
+          }
+        }
       }
     }
   }

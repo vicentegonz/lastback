@@ -1,5 +1,6 @@
 # environment
 .venv
+venv/
 
 # cache
 __pycache__
@@ -17,3 +18,4 @@ local_settings.py
 *.egg-info
 *.icloud
 *.sqlite3
+.vscode

@@ -1,0 +1,38 @@
+name: production
+
+on:
+  push:
+    branches:
+      - stable
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Login to ECR registry
+        run: aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 556359875842.dkr.ecr.us-east-2.amazonaws.com
+
+      - name: Build application image
+        run: docker build --file Dockerfile --tag 556359875842.dkr.ecr.us-east-2.amazonaws.com/backend:production .
+
+      - name: Push application image
+        run: docker push 556359875842.dkr.ecr.us-east-2.amazonaws.com/backend:production
+
+      - name: Register task definition
+        run: aws ecs register-task-definition --cli-input-json file://aws/production/task.json
+
+      - name: Execute migrations using a standalone task
+        run: aws ecs run-task --cluster production --task-definition application-production --overrides file://aws/production/migration-override.json --enable-execute-command --count 1
+
+      - name: Update application service
+        run: aws ecs update-service --cluster production --service application-production --task-definition application-production --force-new-deployment

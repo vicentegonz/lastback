@@ -1,0 +1,92 @@
+[
+  {
+    "model": "operations.Event",
+    "pk": 1,
+    "fields": {
+        "store_id": 2088,
+        "data": {"event": "Se estima que hoy se consumirán 50 coca-colas zero"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 2,
+    "fields": {
+        "store_id": 2088,
+        "data": {"event": "Se estima que hoy se consumirán 40 coca-colas light"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 3,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy se consumirán 30 coca-colas light"},
+        "created_at": "2020-11-02T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 4,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy se consumirán 20 coca-colas"},
+        "created_at": "2020-10-31T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 5,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy se consumirán 10 coca-colas light"},
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 6,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy no se consumirán coca-colas light"},
+        "created_at": "2020-10-15T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 7,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy se consumirán 20 coca-colas"},
+        "created_at": "2020-10-12T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 8,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy se consumirán 10 coca-colas light"},
+        "created_at": "2020-10-11T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  },
+  {
+    "model": "operations.Event",
+    "pk": 9,
+    "fields": {
+        "store_id": 2047,
+        "data": {"event": "Se estima que hoy no se consumirán coca-colas light"},
+        "created_at": "2020-10-10T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  }
+]

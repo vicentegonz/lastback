@@ -36,3 +36,12 @@ black!:
 .PHONY: isort!
 isort!:
 	poetry run isort backend manage.py --profile=black
+
+# Helpers
+.PHONY: migrate!
+migrate!:
+	docker-compose run web python manage.py migrate
+
+.PHONY: seeds!
+seeds!:
+	docker-compose run web python manage.py loaddata $(shell find | grep '^\.\/backend\/.*\/fixtures/.*' | rev | cut -d'/' -f1 | rev | tr '\n' ' ')

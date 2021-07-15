@@ -21,13 +21,13 @@ services:
       PORT: 8000
       DJANGO_ENV: development
       DJANGO_SECRET_KEY: supersecretkey
-      ALLOWED_HOSTS: localhost 127.0.0.1
     ports:
       - "8000:8000"
     depends_on:
       - db
     networks:
       - backend
+    env_file: .env
 
 
 volumes:

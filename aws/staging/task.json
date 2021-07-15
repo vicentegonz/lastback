@@ -1,0 +1,32 @@
+{
+  "family": "application-staging",
+  "executionRoleArn": "arn:aws:iam::556359875842:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "556359875842.dkr.ecr.us-east-2.amazonaws.com/backend:staging",
+      "essential": true,
+      "cpu": 250,
+      "memory": 230,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "DJANGO_ENV",
+          "value": "production"
+        }
+      ],
+      "environmentFiles": [
+        {
+          "value": "arn:aws:s3:::backend-secrets-stuf7hith-plel4wous/staging.env",
+          "type": "s3"
+        }
+      ]
+    }
+  ]
+}

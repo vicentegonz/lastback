@@ -1,0 +1,11 @@
+[
+  {
+    "model": "operations.Zone",
+    "pk": 1,
+    "fields": {
+        "name": "San Joaquín",
+        "created_at": "2020-10-20T10:30:00.998Z",
+        "updated_at": "2020-10-20T10:30:00.998Z"
+    }
+  }
+]

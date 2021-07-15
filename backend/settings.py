@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import datetime
 import os
 from pathlib import Path
 
@@ -23,13 +24,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-secret-key")
+
+API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
+
+FORECAST_ARN = os.environ.get("FORECAST_ARN")
+
+GOOGLE_CLIENT_ID_EXPO = os.environ.get("GOOGLE_CLIENT_ID_EXPO")
+GOOGLE_CLIENT_ID_ANDROID = os.environ.get("GOOGLE_CLIENT_ID_ANDROID")
+GOOGLE_CLIENT_ID_IOS = os.environ.get("GOOGLE_CLIENT_ID_IOS")
+
+GOOGLE_CLIENT_IDS = list(
+    filter(
+        lambda x: x is not None,
+        [GOOGLE_CLIENT_ID_EXPO, GOOGLE_CLIENT_ID_ANDROID, GOOGLE_CLIENT_ID_IOS],
+    )
+)
 
 DJANGO_ENV = os.environ.get("DJANGO_ENV")
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(" ")
+ALLOWED_HOSTS = "*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") != "production"
+DEBUG = (os.environ.get("DEBUG") == "True") or (DJANGO_ENV != "production")
 
 
 # REST Framework
@@ -37,24 +53,46 @@ DEBUG = os.environ.get("DEBUG") != "production"
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.AllowAny",
+        "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 5,
+}
+
+JWT_LIFETIME = int(os.environ.get("JWT_LIFETIME", "60"))  # minutes
+JWT_REFRESH_LIFETIME = int(os.environ.get("JWT_REFRESH_LIFETIME", "24"))  # hours
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=JWT_LIFETIME),
+    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(hours=JWT_REFRESH_LIFETIME),
+    "ROTATE_REFRESH_TOKENS": True,
 }
 
 
+AUTH_USER_MODEL = "accounts.User"
 # Application definition
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
     "rest_framework",
+    "rest_framework_api_key",
+    "corsheaders",
+    "rest_framework_simplejwt.token_blacklist",
     "backend.docs.apps.DocsConfig",
-    "backend.example.apps.ExampleConfig",
+    "backend.accounts.apps.AccountsConfig",
+    "backend.operations.apps.OperationsConfig",
+    "backend.authentication.apps.AuthenticationConfig",
+    "backend.forecast.apps.ForecastConfig",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -76,10 +114,10 @@ DATABASES = {
         "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
         "HOST": os.environ.get("DATABASE_HOST", "db"),
         "PORT": os.environ.get("DATABASE_PORT", 5432),
-    }
+    },
 }
 
-# Configure DATABASE_URL as main database in production
+# Configure DATABASE_URL as the main database
 if "DATABASE_URL" in os.environ:
     DATABASES["default"] = dj_database_url.config(ssl_require=True)
 
@@ -143,3 +181,10 @@ TEMPLATES = [
         },
     }
 ]
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"] + list(
+    filter(lambda x: x, os.environ.get("ALLOWED_ORIGINS", "").split(" "))
+)
