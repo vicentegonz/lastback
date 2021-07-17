@@ -7,4 +7,4 @@ load-plugins = pylint_django
 [FORMAT]
 
 max-line-length = 88
-good-names = pk,os
+good-names = pk,os,s3
