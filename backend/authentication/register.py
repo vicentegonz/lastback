@@ -1,3 +1,5 @@
+from rest_framework.exceptions import AuthenticationFailed
+
 from backend.accounts.models import User
 
 
@@ -15,7 +17,4 @@ def register_social_user(email, given_name, family_name, picture):
         user = User.objects.get(email=email)
         return user.generate_tokens()
 
-    user = User.objects.create_user(email=email, **user_metadata)
-    user.save()
-
-    return user.generate_tokens()
+    raise AuthenticationFailed("Oops, who are you?")
