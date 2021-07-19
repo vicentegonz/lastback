@@ -70,7 +70,7 @@ def generate_indicator(base, current_date, days, categories):
                 net_sale = random.randint(gross_sale-500,gross_sale)
                 contribution= random.randint(1,10000)
                 transactions =  random.randint(1,20)
-            elif category == "Poa":
+            elif category == "POA":
                 gross_sale = 0
                 net_sale = random.randint(3000000,8000000)
                 contribution= 0
@@ -89,7 +89,7 @@ def generate_indicator(base, current_date, days, categories):
             "date": current_date.strftime("%Y-%m-%d"),
             **copy.deepcopy(base),
             })
-            if category == "Poa":
+            if category == "POA":
                 continue
             venta_neta += net_sale
             contribucion += contribution
@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
     KPI_CATEGORIES = [
         "Total", "Cigarrillos", "Comida", "Cooler", "Retail", "Cafeteria",
-        "Serv_Comis", "Servicios", "Baños", "Dif_varias", "Poa", "Non_food&In_out"
+        "Serv_Comis", "Servicios", "Baños", "Dif_varias", "POA", "Non_food&In_out"
     ]
 
 
