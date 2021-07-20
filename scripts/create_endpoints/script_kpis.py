@@ -1,7 +1,7 @@
 import requests
 import csv
 
-API_KEY = '9yydziuU.WptcL4vglt0VHmyJngoKiZlN8Qz5ZLQZ'
+API_KEY = 'zijPNWEZ.NXTmpGDg7DuD3vlHCgYAfpf4Uvn1IyyR'
 file_name = 'kpis.csv'
 
 headers = {
@@ -16,16 +16,17 @@ with open(file_name) as csv_file:
   for row in csv_reader:
     if lines== 0:
       lines+=1
-      print(f'Column names are {", ".join(row)}')
+      #print(f'Column names are {", ".join(row)}')
     else:
       lines+=1
       params = {
-        "name": row[0],
-        "value": float(row[1]),
-        "store": int(row[2]),
-        "units": row[3],
-        "category": row[4],
-        "date": row[5],
+        "date": row[0],
+        "store": int(row[1]),
+        "category": row[3],
+        "net_sale": int(row[4]),
+        "contribution": int(row[5]),
+        "transactions": int(row[6]),
+        "gross_sale": int(row[7]),
       }
       response = requests.put(url, data=params, headers=headers,)
       if response.status_code == 201 or response.status_code == 200 :

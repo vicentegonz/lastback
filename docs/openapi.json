@@ -1010,6 +1010,53 @@
         }
       }
     },
+    "/v1/forecast/recommendations/": {
+      "post": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Endpoint to create events on every store",
+        "tags": ["Forecast"],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-06-01"
+                  }
+                }
+              },
+              "description": "'YYYY-MM-DD' format, must be within a range acceptable by forecast or it will return an error"
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "An array of the created events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
     "/health-check/": {
       "get": {
         "summary": "Health check endpoint for the backend, checks for pending migrations",
@@ -1237,7 +1284,8 @@
           "data": {
             "type": "object",
             "example": {
-              "event": "This is an event example content"
+              "PRODUCT_1": "This is an event example content",
+              "PRODUCT_2": "This is an event example content"
             }
           }
         }
