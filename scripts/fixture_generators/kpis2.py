@@ -26,60 +26,60 @@ def generate_indicator(base, current_date, days, categories):
 
         for category in categories[1:]:
             if category.strip() == "Cigarrillos":
-                gross_sale = random.randint(1000000,3000000)
+                gross_sale = random.randint(2000000,3000000)
                 net_sale = random.randint(gross_sale-300000,gross_sale)
-                contribution= random.randint(50000,200000)
-                transactions =  random.randint(100,500)
+                contribution= random.randint(100000,200000)
+                transactions =  random.randint(300,500)
             elif category == "Comida":
-                gross_sale = random.randint(800000,2000000)
+                gross_sale = random.randint(1000000,2000000)
                 net_sale = random.randint(gross_sale-200000,gross_sale)
                 contribution= random.randint(500000,1000000)
                 transactions =  random.randint(100,300)
             elif category == "Cooler":
-                gross_sale = random.randint(500000,2500000)
+                gross_sale = random.randint(1500000,2500000)
                 net_sale = random.randint(gross_sale-200000,gross_sale)
-                contribution= random.randint(100000,800000)
-                transactions =  random.randint(100,800)
+                contribution= random.randint(600000,800000)
+                transactions =  random.randint(400,700)
             elif category == "Retail":
-                gross_sale = random.randint(300000,1500000)
+                gross_sale = random.randint(900000,1500000)
                 net_sale = random.randint(gross_sale-100000,gross_sale)
-                contribution= random.randint(50000,500000)
-                transactions =  random.randint(50,800)
+                contribution= random.randint(200000,500000)
+                transactions =  random.randint(350,800)
             elif category == "Cafeteria":
-                gross_sale = random.randint(300000,1500000)
+                gross_sale = random.randint(700000,1500000)
                 net_sale = random.randint(gross_sale-100000,gross_sale)
-                contribution= random.randint(100000,1000000)
-                transactions =  random.randint(50,700)
+                contribution= random.randint(500000,1000000)
+                transactions =  random.randint(500,700)
             elif category == "Serv_Comis":
-                gross_sale = random.randint(50000,1000000)
+                gross_sale = random.randint(400000,1000000)
                 net_sale = random.randint(gross_sale-10000,gross_sale)
-                contribution= random.randint(50000,1000000)
-                transactions =  random.randint(1,200)
+                contribution= random.randint(500000,1000000)
+                transactions =  random.randint(80,200)
             elif category == "Servicios":
-                gross_sale = random.randint(-200000,200000)
+                gross_sale = random.randint(100000,150000)
                 net_sale = random.randint(gross_sale-20000,gross_sale)
-                contribution= random.randint(-100000,200000)
-                transactions =  random.randint(1,200)
+                contribution= random.randint(60000,100000)
+                transactions =  random.randint(120,200)
             elif category == "Baños":
-                gross_sale = random.randint(1,20000)
+                gross_sale = random.randint(15000,20000)
                 net_sale = random.randint(gross_sale-1000,gross_sale)
-                contribution= random.randint(1,20000)
-                transactions =  random.randint(1,50)
+                contribution= random.randint(10000,20000)
+                transactions =  random.randint(25,50)
             elif category == "Dif_varias":
-                gross_sale = random.randint(1000,50000)
+                gross_sale = random.randint(30000,50000)
                 net_sale = random.randint(gross_sale-500,gross_sale)
-                contribution= random.randint(1,10000)
-                transactions =  random.randint(1,20)
+                contribution= random.randint(5000,10000)
+                transactions =  random.randint(12,20)
             elif category == "POA":
                 gross_sale = 0
-                net_sale = random.randint(3000000,8000000)
+                net_sale = random.randint(5000000,8000000)
                 contribution= 0
                 transactions =  0
             elif category == "Non_food&In_out":
-                gross_sale = random.randint(1000,70000)
+                gross_sale = random.randint(40000,70000)
                 net_sale = random.randint(gross_sale-500,gross_sale)
-                contribution= random.randint(-20,180000)
-                transactions =  random.randint(1,50)
+                contribution= random.randint(50000,90000)
+                transactions =  random.randint(38,50)
             kpis.append({
             "category": category,
             "net_sale": net_sale,

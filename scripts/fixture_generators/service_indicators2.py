@@ -1,6 +1,7 @@
 import copy
 import json
 import random
+import math
 from datetime import datetime, timedelta
 
 
@@ -24,11 +25,9 @@ def generate_indicator(base, current_date, days, MEAN_VALUES, DESV_VALUES, MIN_V
 
 
         for idx in range(2,15,2):
-            values[idx] = min(values[0],values[idx])
+            values[idx] = max(min(values[0],values[idx]),math.ceil(values[idx-1]/7))
             if values[idx] == 0:
                 values[idx-1]=0
-
-        
 
         service_indicator.append({
             "amount_of_surveys": values[0],          
@@ -85,9 +84,8 @@ if __name__ == "__main__":
 
     INITIAL_DATE = datetime.strptime("2021-06-01", "%Y-%m-%d")
 
-
-    MEAN_VALUES = [7,1,2,14,2,14,2,14,2,10,1,10,1,10,1]
-    DESV_VALUES= [2,1,2,10,1,10,2,10,2,6,1,6,1,7,1]
+    MEAN_VALUES = [8,14,5,12,6,17,4,12,4,15,6,16,6,20,4]
+    DESV_VALUES= [2,1,2,2,1,2,2,1,2,2,1,2,1,2,1]
     MIN_VALUES= [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
     FIRST_SERVICE_INDICATORS = generate_indicators(
