@@ -63,10 +63,15 @@ There are some environmental variables that need to be added to the repository:
 - `DJANGO_SECRET_KEY`: **Required on production**. This random string variable is used by Django as a seed for all of its random stuff, so **it is essential to be random, unique and unknown**.
 - `DJANGO_ENV`: **Required on production**. This string (should be in `["production", "development"]`) dictates the environment in which Django will run.
 - `DEBUG`: This overwrites the `DJANGO_ENV` regarding the debug mode. If `DJANGO_ENV` is set to something other than `production`, the app will run by default on debug mode. If `DJANGO_ENV` is on `production`, however, you can still run the app on debug mode, by setting the `DEBUG` variable to `True`.
-- `GOOGLE_CLIENT_ID`: **Required on production**. This is the client ID of the Google project that allows logins of the users through Google.
+- `GOOGLE_CLIENT_ID_EXPO` : **Required on production**. This is the client ID of the Web Google project that allows logins of the users through Google.
+- `GOOGLE_CLIENT_ID_ANDROID` : **Required on production**. This is the client ID of the Android Google project that allows logins of the users through Google.
+- `GOOGLE_CLIENT_ID_IOS`: **Required on production**. This is the client ID of the iOS Google project that allows logins of the users through Google.
 - `JWT_LIFETIME`: The duration of the JWT, in minutes. Defaults to `60`.
 - `JWT_REFRESH_LIFETIME`: The duration of the refresh token, in hours. Defaults to `24`.
 - `ALLOWED_ORIGINS`: A list of allowed tokens for CORS, separated by spaces (for instance, `https://production.com https://development.com http://localhost:8000`). Note that the application will always allow `http://localhost:3000`.
+- `DATASETGROUP_ARN`: **Required on production**. ARN of the AWS Forecast dataset group.
+- `S3_BUCKET`:  **Required on production**. AWS S3 bucket name.
+- `S3_BUCKET_ROUTE` : **Required on production**. AWS S3 bucket route to weekly updated data.
 - `DATABASE_URL`: **Required on production**. The URL for the database. This variable overwrites the following variables:
   - `DATABASE_NAME`: **Required on production** (unless `DATABASE_URL` is set). Defines the name of the database to access. Defaults to `postgres`.
   - `DATABASE_USER`: **Required on production** (unless `DATABASE_URL` is set). Defines the username of the database engine to use. Defaults to `postgres`.

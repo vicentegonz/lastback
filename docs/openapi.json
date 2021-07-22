@@ -1284,8 +1284,12 @@
           "data": {
             "type": "object",
             "example": {
-              "PRODUCT_1": "This is an event example content",
-              "PRODUCT_2": "This is an event example content"
+              "2021-07-20": {
+                "PRODUCT_1": "This is an event example content"
+              },
+              "2021-07-21": {
+                "PRODUCT_2": "This is an event example content"
+              }
             }
           }
         }

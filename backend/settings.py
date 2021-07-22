@@ -33,6 +33,9 @@ FORECAST_ARN = os.environ.get("FORECAST_ARN")
 GOOGLE_CLIENT_ID_EXPO = os.environ.get("GOOGLE_CLIENT_ID_EXPO")
 GOOGLE_CLIENT_ID_ANDROID = os.environ.get("GOOGLE_CLIENT_ID_ANDROID")
 GOOGLE_CLIENT_ID_IOS = os.environ.get("GOOGLE_CLIENT_ID_IOS")
+DATASETGROUP_ARN = os.environ.get("DATASETGROUP_ARN")
+S3_BUCKET = os.environ.get("S3_BUCKET")
+S3_BUCKET_ROUTE = os.environ.get("S3_BUCKET_ROUTE")
 
 GOOGLE_CLIENT_IDS = list(
     filter(
@@ -75,6 +78,7 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = "accounts.User"
 # Application definition
+
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",

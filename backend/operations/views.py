@@ -39,19 +39,6 @@ class ZoneDetail(generics.RetrieveAPIView):
     serializer_class = ZoneSerializer
 
 
-class CreateEvents(APIView):
-    def post(self, request, *args, **kwargs):
-        # Make call to external Api of recommendation for this store.
-        # Create event with this recommendation.
-        events = [
-            Event.objects.create(store=store, data={"event": "Sample event content"})
-            for store in Store.objects.all()
-        ]
-
-        serializer = EventSerializer(events, many=True)
-        return Response(data=serializer.data, status=status.HTTP_201_CREATED)
-
-
 class ListEvents(generics.ListAPIView):
     pagination_class = EventPagination
 
