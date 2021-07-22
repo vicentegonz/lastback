@@ -1,7 +1,6 @@
 from django.urls import path
 
 from .views import (
-    CreateEvents,
     KPICreate,
     ListEvents,
     ListKPI,
@@ -17,7 +16,6 @@ from .views import (
 urlpatterns = [
     path("stores/", StoreList.as_view()),
     path("stores/<int:pk>/", StoreDetail.as_view()),
-    path("stores/events/", CreateEvents.as_view()),
     path("stores/<int:pk>/events/", ListEvents.as_view()),
     path("stores/<int:pk>/products/", ProductList.as_view()),
     path("stores/<int:pk>/kpis/", ListKPI.as_view()),
